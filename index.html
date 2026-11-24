@@ -524,6 +524,50 @@
       font-variant-numeric: tabular-nums;
     }
 
+    .tl-map {
+      display: inline-flex;
+      align-items: center;
+      gap: .28rem;
+      margin-left: auto;
+      padding: .18rem .62rem .18rem .48rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: .06em;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+    }
+
+    .tl-map .icon { width: 12px; height: 12px; color: var(--matcha); }
+
+    @media (hover: hover) {
+      .tl-map:hover {
+        color: var(--matcha-deep);
+        border-color: #cfd8c1;
+        background: #fbfcf7;
+      }
+    }
+
+    .tl-warn {
+      display: inline-flex;
+      align-items: center;
+      margin-top: .38rem;
+      padding: .12rem .55rem;
+      border: 1px solid #e2cfa4;
+      border-radius: 999px;
+      background: #fbf3dd;
+      color: #8a6524;
+      font-size: .7rem;
+      font-weight: 600;
+      line-height: 1.6;
+      letter-spacing: .04em;
+    }
+
     .tl-name {
       font-size: 1rem;
       font-weight: 600;
@@ -535,7 +579,13 @@
 
     /* ---------- Extra info toggle ---------- */
 
-    .tl-extra { margin-top: .68rem; }
+    .tl-extra {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: .4rem;
+      row-gap: .4rem;
+      margin-top: .68rem;
+    }
 
     .tl-extra-toggle {
       display: inline-flex;
@@ -568,7 +618,8 @@
     }
 
     .tl-extra-panel {
-      margin-top: .6rem;
+      flex-basis: 100%;
+      margin-top: .2rem;
       padding: .78rem .9rem .85rem;
       border: 1px solid var(--line-soft);
       border-radius: 10px;
@@ -665,6 +716,60 @@
       color: var(--matcha-deep);
     }
 
+    .mapcode {
+      padding: .02em .3em;
+      border-radius: 4px;
+      background: #ece7da;
+      color: var(--ink-soft);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: .92em;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+
+    .mono-lead {
+      margin-bottom: .5rem;
+      font-size: .8rem;
+      line-height: 1.75;
+    }
+
+    .mono-quote {
+      margin: 0 0 .45rem;
+      padding: .75rem .85rem;
+      border-left: 3px solid var(--matcha);
+      border-radius: 0 8px 8px 0;
+      background: #fffdf7;
+      font-size: .95rem;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+
+    .mono-zh {
+      margin-bottom: .55rem;
+      font-size: .78rem;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    .mono-notes {
+      display: grid;
+      gap: .18rem;
+      font-size: .78rem;
+      line-height: 1.75;
+    }
+
+    .mono-notes li {
+      position: relative;
+      padding-left: .9rem;
+    }
+
+    .mono-notes li::before {
+      content: "・";
+      position: absolute;
+      left: 0;
+      color: var(--matcha);
+    }
+
     .tl-item.is-stay .tl-card {
       background: linear-gradient(180deg, #f7f9f1 0%, #f1f5e8 100%);
       border-color: #d9e3ca;
@@ -745,6 +850,7 @@
       .tl-name { font-size: .95rem; }
       .duration { font-size: .72rem; }
       .tl-extra-panel { padding: .7rem .75rem .78rem; font-size: .8rem; }
+      .mono-quote { padding: .65rem .7rem; font-size: .88rem; }
       .kv { grid-template-columns: 3.9rem minmax(0, 1fr); gap: .3rem .6rem; }
       .footer-note { text-align: left; }
     }
@@ -775,6 +881,7 @@
       .panel, .panel[hidden] { display: block !important; max-width: none; padding: 1.5rem 0; break-before: page; }
       .panel:first-of-type { break-before: auto; }
       .tl-card { box-shadow: none; break-inside: avoid; }
+      .tl-extra { display: block; }
       .tl-extra-toggle { display: none !important; }
       .tl-extra-panel, .tl-extra-panel[hidden] { display: block !important; }
       .site-footer { background: none; }
@@ -1003,6 +1110,7 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A8%E3%83%A9%E7%A5%9E%E6%88%B8%E4%B8%89%E5%AE%AE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel ERA Kobe Sannomiya"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel ERA Kobe Sannomiya</h3>
           </div>
@@ -1025,6 +1133,7 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 2 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A8%E3%83%A9%E7%A5%9E%E6%88%B8%E4%B8%89%E5%AE%AE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel ERA Kobe Sannomiya"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel ERA Kobe Sannomiya</h3>
           </div>
@@ -1035,8 +1144,31 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 3 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%E3%81%A9%E3%81%86%E3%81%B6%E3%81%A4%E7%8E%8B%E5%9B%BD" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 神戶動物王國"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">神戶動物王國</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day2-oukoku-ticket">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                套票與交通
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day2-oukoku-ticket" hidden>
+                <p class="tl-extra-title">套票與交通</p>
+                <dl class="kv">
+                  <dt>入園料金</dt>
+                  <dd>大人（中學生以上）¥2,400 / 小學生 ¥1,200 / 4・5歲 ¥500 / 満65歲以上 ¥1,900（3歲以下免費）</dd>
+                  <dt>前售票</dt>
+                  <dd>Web チケット（アソビュー! / KKday 線上購票）可免排隊直接入園；全國主要超商亦可購買前售票</dd>
+                  <dt>套票</dt>
+                  <dd>「ポートライナーセット券」＝ Port Liner 乘車券＋入園券組合，自三宮出發最划算；阪神電車沿線另有「阪神電車・ポートライナーセット券」。詳見<a href="https://www.kobe-oukoku.com/information/fees" target="_blank" rel="noopener">官網</a></dd>
+                  <dt>大眾運輸</dt>
+                  <dd>從飯店（三宮）→ JR・阪急・阪神「三宮站」→ 轉乘 ポートライナー（往神戸空港方向）→「計算科学センター駅」（神戸どうぶつ王国・「富岳」前）下車即達，車程約14分，單程 大人 ¥250 / 小孩 ¥120。另有神姫バス直達：三宮駅前（神戸阪急前）→「神戸どうぶつ王国前」約25分，僅週六日及假日行駛（11/29 為週日，有行駛）</dd>
+                  <dt>園區資訊</dt>
+                  <dd>10:00–17:00（最終入園 16:30）、週四休園（11/29 週日正常營業）、TEL 078-302-8899</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1045,6 +1177,7 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%E3%83%9D%E3%83%BC%E3%83%88%E3%82%BF%E3%83%AF%E3%83%BC" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 神戶港塔"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">神戶港塔</h3>
           </div>
@@ -1055,6 +1188,7 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A8%E3%83%A9%E7%A5%9E%E6%88%B8%E4%B8%89%E5%AE%AE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel ERA Kobe Sannomiya"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel ERA Kobe Sannomiya</h3>
           </div>
@@ -1077,6 +1211,7 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A8%E3%83%A9%E7%A5%9E%E6%88%B8%E4%B8%89%E5%AE%AE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel ERA Kobe Sannomiya"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel ERA Kobe Sannomiya</h3>
           </div>
@@ -1087,8 +1222,29 @@
             <div class="tl-meta">
               <span class="tag tag--move"><svg class="icon" aria-hidden="true"><use href="#i-car"></use></svg>租車</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%8B%E3%83%83%E3%83%9D%E3%83%B3%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%AB%E3%83%BC%E7%A5%9E%E6%88%B8%E4%B8%89%E5%AE%AE%E5%96%B6%E6%A5%AD%E6%89%80" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Nippon Rent-a-car"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Nippon Rent-a-car</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day3-rental-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day3-rental-extra" hidden>
+                <p class="tl-extra-title">租車營業所資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:05017122486">050-1712-2486</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">12 399 188*83</span></dd>
+                  <dt>地址</dt>
+                  <dd>兵庫県神戸市中央区旭通3-1-2</dd>
+                  <dt>備註</dt>
+                  <dd>08:00–20:00 全年無休，JR三ノ宮駅步行約400m</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1097,8 +1253,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%E5%B8%82%E7%AB%8B%E9%A0%88%E7%A3%A8%E9%9B%A2%E5%AE%AE%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 須磨離宮公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">須磨離宮公園</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day3-suma-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day3-suma-extra" hidden>
+                <p class="tl-extra-title">公園資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0787326688">078-732-6688</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">31 239 884*07</span></dd>
+                  <dt>地址</dt>
+                  <dd>神戸市須磨区東須磨1-1</dd>
+                  <dt>備註</dt>
+                  <dd>09:00–17:00（入園至16:30）、週四休園（11/30 為週一，正常開放）</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1107,8 +1284,30 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%94%E8%89%B2%E5%A1%9A%E5%8F%A4%E5%A2%B3" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 五色塚古墳"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">五色塚古墳</h3>
+            <p class="tl-warn">⚠ 行前請電話確認</p>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day3-goshikizuka-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day3-goshikizuka-extra" hidden>
+                <p class="tl-extra-title">古墳資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0787073131">078-707-3131</a>（五色塚古墳館）</dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">31 170 205*76</span></dd>
+                  <dt>地址</dt>
+                  <dd>神戸市垂水区五色山4-1</dd>
+                  <dt>備註</dt>
+                  <dd>09:00–17:00；⚠️ 古墳館週一休館——行程日 11/30 為週一，行前請電話確認（戶外古墳通常仍可觀覽）</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1117,8 +1316,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E7%AB%8B%E8%88%9E%E5%AD%90%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 兵庫縣立舞子公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">兵庫縣立舞子公園</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day3-maiko-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day3-maiko-extra" hidden>
+                <p class="tl-extra-title">公園資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0787855090">078-785-5090</a>（管理事務所 9:00–17:00）</dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">31 169 311*55</span>（舞子海上プロムナード）</dd>
+                  <dt>地址</dt>
+                  <dd>神戸市垂水区東舞子町2051</dd>
+                  <dt>備註</dt>
+                  <dd>開園24小時；停車 P1 約198台 ¥200/時（上限 ¥1,000）</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item is-stay">
@@ -1127,8 +1347,29 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel Himeji</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day3-himeji-hotel-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day3-himeji-hotel-extra" hidden>
+                <p class="tl-extra-title">飯店資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0792868511">079-286-8511</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">24 278 022*28</span></dd>
+                  <dt>地址</dt>
+                  <dd>姫路市北条口1丁目50-3</dd>
+                  <dt>備註</dt>
+                  <dd>JR姫路駅東口步行約6分；飯店停車場費用請於訂房時確認</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
       </ol>
@@ -1149,6 +1390,7 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel Himeji</h3>
           </div>
@@ -1159,6 +1401,7 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%B8%82%E8%A6%B3%E5%85%89%E6%A1%88%E5%86%85%E6%89%80" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路市觀光案內所"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">姬路市觀光案內所</h3>
           </div>
@@ -1169,6 +1412,7 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%BF%E3%82%86%E3%81%8D%E9%80%9A%E3%82%8A%E5%95%86%E5%BA%97%E8%A1%97%20%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 御幸通商店街"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">御幸通商店街</h3>
           </div>
@@ -1179,6 +1423,7 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%9F%8E" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路城"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">姬路城</h3>
           </div>
@@ -1189,6 +1434,7 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A5%BD%E5%8F%A4%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 好古園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">好古園</h3>
           </div>
@@ -1199,6 +1445,7 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E6%96%87%E5%AD%A6%E9%A4%A8" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路文學館"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">姬路文學館</h3>
           </div>
@@ -1209,6 +1456,7 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel Himeji</h3>
           </div>
@@ -1231,6 +1479,7 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 2 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel Himeji</h3>
           </div>
@@ -1241,8 +1490,27 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-torii"></use></svg>神社</span>
               <span class="duration">停留 30 分鐘</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%89%E5%BF%97%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE%20%E5%A7%AB%E8%B7%AF%E5%B8%82%E5%AE%89%E5%AF%8C%E7%94%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 安志稲荷神社"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">安志稲荷神社</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day5-anzu-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day5-anzu-extra" hidden>
+                <p class="tl-extra-title">神社資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0790663180">0790-66-3180</a>（與安志加茂神社共用社務所）</dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">114 866 702*53</span></dd>
+                  <dt>地址</dt>
+                  <dd>兵庫県姫路市安富町安志407</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1251,8 +1519,30 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-food"></use></svg>餐廳</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%A4%E6%B0%91%E5%AE%B6%E3%83%A9%E3%83%B3%E3%83%81%E6%99%B4%E3%82%8B%E3%81%B0%E3%82%8B" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 古民家ランチ 晴るばる"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">古民家ランチ 晴るばる</h3>
+            <p class="tl-warn">⚠ 行前請電話確認</p>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day5-harubaru-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day5-harubaru-extra" hidden>
+                <p class="tl-extra-title">餐廳資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0790603006">0790-60-3006</a></dd>
+                  <dt>Map Code</dt>
+                  <dd>未刊登（導航可用地址 姫路市安富町安志142）</dd>
+                  <dt>地址</dt>
+                  <dd>姫路市安富町安志142</dd>
+                  <dt>備註</dt>
+                  <dd>11:00–15:00（LO 14:00）、採預約優先制；⚠️ 定休日為週三・週五——行程日 12/02 正是週三，請務必行前電話確認營業並預約</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1261,8 +1551,46 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 3 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E7%AB%8B%E5%9B%BD%E8%A6%8B%E3%81%AE%E6%A3%AE%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 兵庫県立国見の森公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
-            <h3 class="tl-name">Hyogo Prefectural Kuniminomori Park</h3>
+            <h3 class="tl-name">兵庫県立国見の森公園</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day5-kunimi-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day5-kunimi-mono">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                預約說明
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day5-kunimi-extra" hidden>
+                <p class="tl-extra-title">公園資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0790640923">0790-64-0923</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">114 828 841*64</span></dd>
+                  <dt>地址</dt>
+                  <dd>兵庫県宍粟市山崎町上比地374</dd>
+                  <dt>備註</dt>
+                  <dd>09:00–17:00、入園・停車免費（49台）、週一休園（12/02 週三正常）</dd>
+                </dl>
+              </div>
+              <div class="tl-extra-panel" id="day5-kunimi-mono" hidden>
+                <p class="tl-extra-title">ミニモノレール 電話預約說明</p>
+                <p class="mono-lead">通話對象：<a href="tel:0790640923">兵庫県立国見の森公園 0790-64-0923</a></p>
+                <blockquote class="mono-quote" lang="ja">「国見の森公園のミニモノレールの予約をお願いしたいのですが。<br>12月2日 (水曜日) に3名で利用を希望しています。<br>上り (山麓駅発) は13:10の便、下り (山上駅発) は14:40の便を予約させていただきたいのですが、可能でしょうか。」</blockquote>
+                <p class="mono-zh">「您好，想預約國見之森公園的迷你單軌電車。希望在 12月2日 (週三) 3人搭乘，上行 (山麓站發車) 13:10 的班次、下行 (山上站發車) 14:40 的班次，請問可以預約嗎？」</p>
+                <ul class="mono-notes">
+                  <li>ミニモノレール採完全預約制（電話或交流館綜合窗口受理）。</li>
+                  <li>乘車免費；請於發車 5 分鐘前到站舍前集合。</li>
+                  <li>官方班表 13:10（上り便No.5）/ 14:40（下り便No.6）皆有行駛。</li>
+                  <li>公園週一休園，12/02（週三）正常開放。</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1271,8 +1599,27 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%8D%E3%82%89%E3%81%8D%E3%82%89%E5%9D%82%20%E8%B5%A4%E7%A9%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Kirakira-saka"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Kirakira-saka</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day5-kirakira-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day5-kirakira-extra" hidden>
+                <p class="tl-extra-title">景點資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd>無專用電話（洽詢：赤穂市観光課 <a href="tel:0791436839">0791-43-6839</a>）</dd>
+                  <dt>地址</dt>
+                  <dd>赤穂市御崎2-1，伊和都比売神社境內往海側的石疊坂道</dd>
+                  <dt>備註</dt>
+                  <dd>自駕導航建議「御崎観光駐車場」（免費54台）</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item is-stay">
@@ -1281,8 +1628,29 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-onsen"></use></svg>溫泉</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%8A%80%E6%B3%A2%E8%8D%98%20%E8%B5%A4%E7%A9%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 赤穗溫泉夕映之宿銀波莊 (Ginpaso)"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">赤穗溫泉夕映之宿銀波莊 (Ginpaso)</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day5-ginpaso-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day5-ginpaso-extra" hidden>
+                <p class="tl-extra-title">住宿資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0791453355">0791-45-3355</a>（預約中心 <a href="tel:05020180878">050-2018-0878</a>）</dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">541 499 756*05</span></dd>
+                  <dt>地址</dt>
+                  <dd>赤穂市御崎2-8</dd>
+                  <dt>備註</dt>
+                  <dd>住宿客免費停車25台</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
       </ol>
@@ -1303,6 +1671,7 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-onsen"></use></svg>溫泉</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%8A%80%E6%B3%A2%E8%8D%98%20%E8%B5%A4%E7%A9%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 赤穗溫泉夕映之宿銀波莊 (Ginpaso)"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">赤穗溫泉夕映之宿銀波莊 (Ginpaso)</h3>
           </div>
@@ -1313,8 +1682,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B5%A4%E7%A9%82%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92%20%E9%9B%A3%E7%A0%B4%E8%88%B9" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 大型遊具・難破船"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">大型遊具・難破船</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day6-nanpansen-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day6-nanpansen-extra" hidden>
+                <p class="tl-extra-title">公園資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0791450800">0791-45-0800</a>（公園管理事務所）</dd>
+                  <dt>Map Code</dt>
+                  <dd>導航建議「赤穂海浜公園 西駐車場」（園區參考碼 <span class="mapcode">541 528 676*05</span>）</dd>
+                  <dt>地址</dt>
+                  <dd>赤穂市御崎1857-5</dd>
+                  <dt>備註</dt>
+                  <dd>⚠️ 部分資料載週二休園，行前建議電話確認</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1323,8 +1713,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-torii"></use></svg>神社</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B5%A4%E7%A9%82%E5%A4%A7%E7%9F%B3%E7%A5%9E%E7%A4%BE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 赤穗大石神社"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">赤穗大石神社</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day6-oishi-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day6-oishi-extra" hidden>
+                <p class="tl-extra-title">神社資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0791422054">0791-42-2054</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">541 586 508*71</span></dd>
+                  <dt>地址</dt>
+                  <dd>赤穂市上仮屋131-7</dd>
+                  <dt>備註</dt>
+                  <dd>神社前免費停車70台</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1333,8 +1744,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%97%A7%E9%96%91%E8%B0%B7%E5%AD%A6%E6%A0%A1" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 舊閑谷學校"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">舊閑谷學校</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day6-kyukan-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day6-kyukan-extra" hidden>
+                <p class="tl-extra-title">史跡資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0869671436">0869-67-1436</a>（史跡受付，保存會 <a href="tel:0869679900">0869-67-9900</a>）</dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">151 776 021*41</span>（第1停車場）</dd>
+                  <dt>地址</dt>
+                  <dd>岡山県備前市閑谷784</dd>
+                  <dt>備註</dt>
+                  <dd>09:00–17:00</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1343,8 +1775,25 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA%20%E6%9C%AC%E7%94%BA%E9%80%9A%E3%82%8A" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷美觀地區 本町街道"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">倉敷美觀地區 本町街道</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day6-kurashiki-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day6-kurashiki-extra" hidden>
+                <p class="tl-extra-title">區域資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd>區域型景點無自屬電話（倉敷館観光案内所 <a href="tel:0864220542">086-422-0542</a>）</dd>
+                  <dt>地址</dt>
+                  <dd>導航可設 倉敷市中央1-4-8（倉敷館）</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item is-stay">
@@ -1353,8 +1802,27 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E3%82%A2%E3%82%A4%E3%83%93%E3%83%BC%E3%82%B9%E3%82%AF%E3%82%A8%E3%82%A2" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷長春藤廣場酒店"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">倉敷長春藤廣場酒店</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day6-ivy-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day6-ivy-extra" hidden>
+                <p class="tl-extra-title">飯店資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd>宿泊部直通 <a href="tel:0864220012">086-422-0012</a>（代表 <a href="tel:0864220011">086-422-0011</a>）</dd>
+                  <dt>地址</dt>
+                  <dd>〒710-0054 倉敷市本町7-2</dd>
+                  <dt>備註</dt>
+                  <dd>停車場120台、住宿客 1泊 ¥500</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
       </ol>
@@ -1375,8 +1843,27 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E3%82%A2%E3%82%A4%E3%83%93%E3%83%BC%E3%82%B9%E3%82%AF%E3%82%A8%E3%82%A2" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷長春藤廣場酒店"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">倉敷長春藤廣場酒店</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day7-ivy-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day7-ivy-extra" hidden>
+                <p class="tl-extra-title">飯店資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0864220012">086-422-0012</a></dd>
+                  <dt>地址</dt>
+                  <dd>倉敷市本町7-2</dd>
+                  <dt>備註</dt>
+                  <dd>住宿客停車 1泊 ¥500；08:00 出發</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1385,8 +1872,27 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E3%81%B5%E3%82%8C%E3%81%82%E3%81%84%E3%81%AE%E4%B8%98%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷交流之丘公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">倉敷交流之丘公園</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day7-fureai-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day7-fureai-extra" hidden>
+                <p class="tl-extra-title">公園資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0864545252">086-454-5252</a>（交流棟管理事務所）</dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">19 546 662*34</span>（第1停車場）</dd>
+                  <dt>地址</dt>
+                  <dd>倉敷市有城1248（2025年10月新開園）</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1395,8 +1901,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%B7%B2%E7%BE%BD%E5%B1%B1%E5%B1%95%E6%9C%9B%E5%8F%B0" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 鷲羽山"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">鷲羽山</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day7-washu-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day7-washu-extra" hidden>
+                <p class="tl-extra-title">展望台資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd>鷲羽山レストハウス <a href="tel:0864799164">086-479-9164</a></dd>
+                  <dt>Map Code</dt>
+                  <dd>展望台 <span class="mapcode">19 038 601*18</span>、レストハウス <span class="mapcode">19 037 756*88</span></dd>
+                  <dt>地址</dt>
+                  <dd>倉敷市下津井田之浦1-1</dd>
+                  <dt>備註</dt>
+                  <dd>停車免費約366台</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1405,8 +1932,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%81%96%E9%80%9A%E5%AF%BA%E5%B1%B1%E5%B1%95%E6%9C%9B%E5%8F%B0%20%E5%AE%87%E5%A4%9A%E6%B4%A5" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 戀人的聖地 聖通寺山展望台（聖安潔莉娜）"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">戀人的聖地 聖通寺山展望台（聖安潔莉娜）</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day7-shozuiji-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day7-shozuiji-extra" hidden>
+                <p class="tl-extra-title">展望台資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0877462000">0877-46-2000</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">77 865 001*88</span></dd>
+                  <dt>地址</dt>
+                  <dd>香川県綾歌郡宇多津町平山2719-1</dd>
+                  <dt>備註</dt>
+                  <dd>週三休（12/04 週五正常）；展望台位於婚宴會館內，建議當日先電話確認</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item is-stay">
@@ -1415,8 +1963,29 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-onsen"></use></svg>溫泉</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9B%E3%83%86%E3%83%AB%E9%AB%98%E6%9D%BE%E7%94%B0%E7%94%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 天然溫泉讚岐之湯 Super Hotel高松田町"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">天然溫泉讚岐之湯 Super Hotel高松田町</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day7-superhotel-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day7-superhotel-extra" hidden>
+                <p class="tl-extra-title">飯店資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0878979000">087-897-9000</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">60 606 215*15</span></dd>
+                  <dt>地址</dt>
+                  <dd>高松市田町1-1</dd>
+                  <dt>備註</dt>
+                  <dd>チェックイン 15:00</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
       </ol>
@@ -1437,8 +2006,29 @@
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9B%E3%83%86%E3%83%AB%E9%AB%98%E6%9D%BE%E7%94%B0%E7%94%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 天然溫泉讚岐之湯 Super Hotel高松田町"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">天然溫泉讚岐之湯 Super Hotel高松田町</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day8-superhotel-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day8-superhotel-extra" hidden>
+                <p class="tl-extra-title">飯店資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0878979000">087-897-9000</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">60 606 215*15</span></dd>
+                  <dt>地址</dt>
+                  <dd>高松市田町1-1</dd>
+                  <dt>備註</dt>
+                  <dd>チェックイン 15:00；08:00 出發</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1447,8 +2037,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A0%97%E6%9E%97%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 栗林公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">栗林公園</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day8-ritsurin-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day8-ritsurin-extra" hidden>
+                <p class="tl-extra-title">公園資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0878337411">087-833-7411</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">60 575 199*57</span>（東門停車 <span class="mapcode">60 575 021*46</span>、北門停車 <span class="mapcode">60 575 464*51</span>）</dd>
+                  <dt>地址</dt>
+                  <dd>高松市栗林町1-20-16</dd>
+                  <dt>備註</dt>
+                  <dd>07:00–17:00（隨季節變動）</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1457,8 +2068,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pagoda"></use></svg>寺院</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8B%E5%B3%B6%E5%AF%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 第八十四番札所 屋島寺"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">第八十四番札所 屋島寺</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day8-yashima-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day8-yashima-extra" hidden>
+                <p class="tl-extra-title">寺院資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0878419418">087-841-9418</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">60 672 493*50</span></dd>
+                  <dt>地址</dt>
+                  <dd>高松市屋島東町1808</dd>
+                  <dt>備註</dt>
+                  <dd>納經受理 07:00–17:00</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1467,8 +2099,29 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-torii"></use></svg>神社</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B7%9D%E6%9D%B1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E9%AB%98%E6%9D%BE%E5%B8%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 川東八幡神社"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">川東八幡神社</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day8-kawahigashi-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day8-kawahigashi-extra" hidden>
+                <p class="tl-extra-title">神社資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0878794079">087-879-4079</a></dd>
+                  <dt>Map Code</dt>
+                  <dd>未刊登（導航建議以電話號碼檢索）</dd>
+                  <dt>地址</dt>
+                  <dd>高松市香川町川東下1121</dd>
+                  <dt>備註</dt>
+                  <dd>在機場北側，可與加油、還車動線相連</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1477,8 +2130,29 @@
             <div class="tl-meta">
               <span class="tag tag--move"><svg class="icon" aria-hidden="true"><use href="#i-fuel"></use></svg>交通</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%BB%E3%83%AB%E3%83%95%E9%AB%98%E6%9D%BE%E7%A9%BA%E6%B8%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 SOLATO 自助高松機場加油站"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">SOLATO 自助高松機場加油站</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day8-solato-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day8-solato-extra" hidden>
+                <p class="tl-extra-title">加油站資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:0878792105">087-879-2105</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">60 243 387*37</span></dd>
+                  <dt>地址</dt>
+                  <dd>高松市香川町川東下572-1（キョーエイ空港店敷地內）</dd>
+                  <dt>備註</dt>
+                  <dd>07:00–24:00 全年無休；還車前最後加油用</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -1487,8 +2161,29 @@
             <div class="tl-meta">
               <span class="tag tag--move"><svg class="icon" aria-hidden="true"><use href="#i-car"></use></svg>租車</span>
               <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%8B%E3%83%83%E3%83%9D%E3%83%B3%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%AB%E3%83%BC%E9%AB%98%E6%9D%BE%E7%A9%BA%E6%B8%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Nippon Rent-A-Car Takamatsu Airport"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Nippon Rent-A-Car Takamatsu Airport</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day8-nippon-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day8-nippon-extra" hidden>
+                <p class="tl-extra-title">租車營業所資訊</p>
+                <dl class="kv">
+                  <dt>電話</dt>
+                  <dd><a href="tel:05017122437">050-1712-2437</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">60 211 117*07</span>（官網指定還車導航碼）</dd>
+                  <dt>地址</dt>
+                  <dd>高松市香南町由佐2367-1</dd>
+                  <dt>備註</dt>
+                  <dd>08:00–20:00；營業所不在航廈內，先到到著大廳 NR 櫃台報到，有免費接送（約3分）</dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
