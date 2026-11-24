@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant-TW" data-version="1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -311,6 +311,61 @@
 
     @media (max-width: 900px) {
       .hero-mark { display: none; }
+    }
+
+    /* ---------- Version switch ---------- */
+
+    .version-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .5rem 1rem;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 1.1rem 1rem 0;
+    }
+
+    .segmented {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: .15rem;
+      padding: .2rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--bg-deep);
+    }
+
+    .version-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: .38rem .85rem;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: .76rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    .version-btn[aria-pressed="true"] {
+      background: var(--surface);
+      color: var(--matcha-deep);
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (hover: hover) {
+      .version-btn:hover { color: var(--matcha-deep); }
+    }
+
+    .version-note {
+      max-width: 40rem;
+      font-size: .72rem;
+      line-height: 1.7;
+      letter-spacing: .02em;
+      color: var(--muted);
     }
 
     /* ---------- Tabs ---------- */
@@ -982,6 +1037,8 @@
 
     @media (max-width: 600px) {
       .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .version-bar { padding: .9rem .75rem 0; gap: .45rem .75rem; }
+      .version-btn { padding: .35rem .7rem; font-size: .72rem; }
       .tabs-scroll { padding-left: .75rem; padding-right: .75rem; }
       .tab { min-width: 5.9rem; padding: .55rem .8rem .7rem; }
       .tab-theme { font-size: .69rem; }
@@ -1020,8 +1077,12 @@
     @media print {
       body { background: #fff; }
       .hero { padding: 1rem 0; background: none; }
-      .hero-mark, .hero::before, .hero::after, .tabs, .btn, .hero-links, .skip-link { display: none !important; }
+      .hero-mark, .hero::before, .hero::after, .tabs, .btn, .hero-links, .version-bar, .skip-link { display: none !important; }
       .panel, .panel[hidden] { display: block !important; max-width: none; padding: 1.5rem 0; opacity: 1 !important; animation: none !important; break-before: page; }
+      html[data-version="1"] #panel-4-v2,
+      html[data-version="1"] #panel-5-v2,
+      html[data-version="2"] #panel-4,
+      html[data-version="2"] #panel-5 { display: none !important; }
       .panel:first-of-type { break-before: auto; }
       .tl-card { box-shadow: none; break-inside: avoid; }
       .tl-extra { display: block; }
@@ -1145,6 +1206,13 @@
   </header>
 
   <main id="main">
+    <div class="version-bar">
+      <div class="segmented" role="group" aria-label="行程版本切換">
+        <button type="button" class="version-btn" id="version-btn-1" data-version="1" aria-pressed="true">版本 1・原行程</button>
+        <button type="button" class="version-btn" id="version-btn-2" data-version="2" aria-pressed="false">版本 2・書写山＋龍野</button>
+      </div>
+      <p class="version-note">版本 2：Day 4 書写山＋姬路站週邊 / Day 5 姬路城＋龍野昭和レトロ</p>
+    </div>
     <nav class="tabs" aria-label="每日行程分頁">
       <div class="tabs-scroll" role="tablist" aria-label="Day 1 至 Day 8" aria-orientation="horizontal">
         <button type="button" class="tab" id="tab-1" role="tab" aria-selected="true" aria-controls="panel-1" tabindex="0">
@@ -1159,11 +1227,11 @@
           <span class="tab-top"><span class="tab-day">Day 3</span><span class="tab-date">11/30 <span class="dow">（一）</span></span></span>
           <span class="tab-theme">租車自駕往姬路</span>
         </button>
-        <button type="button" class="tab" id="tab-4" role="tab" aria-selected="false" aria-controls="panel-4" tabindex="-1">
+        <button type="button" class="tab" id="tab-4" role="tab" aria-selected="false" aria-controls="panel-4" tabindex="-1" data-theme-v1="姬路城漫遊" data-theme-v2="書写山・姬路站週邊">
           <span class="tab-top"><span class="tab-day">Day 4</span><span class="tab-date">12/01 <span class="dow">（二）</span></span></span>
           <span class="tab-theme">姬路城漫遊</span>
         </button>
-        <button type="button" class="tab" id="tab-5" role="tab" aria-selected="false" aria-controls="panel-5" tabindex="-1">
+        <button type="button" class="tab" id="tab-5" role="tab" aria-selected="false" aria-controls="panel-5" tabindex="-1" data-theme-v1="姬路 → 赤穗溫泉" data-theme-v2="姬路城・龍野 → 赤穗">
           <span class="tab-top"><span class="tab-day">Day 5</span><span class="tab-date">12/02 <span class="dow">（三）</span></span></span>
           <span class="tab-theme">姬路 → 赤穗溫泉</span>
         </button>
@@ -1788,6 +1856,157 @@
       <p class="drive-note">步行時間為估算，實際請以 Google 路線為準</p>
     </section>
 
+    <section class="panel" id="panel-4-v2" role="tabpanel" aria-labelledby="tab-4" tabindex="0" hidden>
+      <header class="panel-head">
+        <div>
+          <p class="panel-date"><time datetime="2026-12-01">2026/12/01（二）</time></p>
+          <h2 class="panel-title">書写山・姬路站週邊</h2>
+        </div>
+        <p class="panel-note"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>住宿 姬路</p>
+      </header>
+      <ol class="timeline">
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="09:30">09:30</time><span class="tl-status">出發</span></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">Comfort Hotel Himeji</h3>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 15 分 · 8 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.82847,134.69506&amp;destination=34.88140,134.66438&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="09:45">09:45</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pagoda"></use></svg>寺院</span>
+              <span class="duration">停留 2 小時 45 分</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9B%B8%E5%86%99%E5%B1%B1%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 書写山ロープウェイ"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="http://www.shosha.or.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：書写山 圓教寺"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">書写山 圓教寺</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v2-shosha-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v2-shosha-extra" hidden>
+                <p class="tl-extra-title">書写山ロープウェイ／圓教寺</p>
+                <dl class="kv">
+                  <dt>纜車</dt>
+                  <dd>08:30–17:00，每 15 分一班 (每時 :00/:15/:30/:45)；12 月末班上山 16:45 / 下山 17:00；大人往復 ¥1,200、小孩 ¥600</dd>
+                  <dt>入山志納金</dt>
+                  <dd>大人 (中學生以上) ¥800、小學生 ¥500 (2026/3/19 起)</dd>
+                  <dt>山上站→摩尼殿</dt>
+                  <dd>步行約 20 分，或接駁車 ¥500 (往返)</dd>
+                  <dt>停車</dt>
+                  <dd>山麓站免費約 270 台；導航請設「書写山ロープウェイ」(設「圓教寺」會導到不能開車的參道)</dd>
+                  <dt>電話</dt>
+                  <dd><a href="tel:0792662006">079-266-2006</a> (纜車) / <a href="tel:0792663327">079-266-3327</a> (圓教寺)</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 15 分 · 8 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.88140,134.66438&amp;destination=34.82623,134.68924&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="12:45">12:45</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-food"></use></svg>餐廳</span>
+              <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%BF%E3%82%86%E3%81%8D%E9%80%9A%E3%82%8A%E5%95%86%E5%BA%97%E8%A1%97%20%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路站前午餐"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">姬路站前午餐（みゆき通り）</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v2-lunch-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v2-lunch-extra" hidden>
+                <p class="tl-extra-title">姬路站前午餐</p>
+                <p>みゆき通りアーケード一帶餐廳/咖啡選擇多 (はまもとコーヒー、お菓子のデパートよしや等)；下雨也方便</p>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+              <span class="tl-leg-text">步行約 5 分</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="13:50">13:50</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
+              <span class="duration">停留 30 分</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%B8%82%E8%A6%B3%E5%85%89%E6%A1%88%E5%86%85%E6%89%80" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路市觀光案內所"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.himeji-kanko.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：姬路市觀光案內所"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">姬路市觀光案內所</h3>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+              <span class="tl-leg-text">步行約 10 分</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="14:25">14:25</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
+              <span class="duration">停留 1 小時 45 分</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%BF%E3%82%86%E3%81%8D%E9%80%9A%E3%82%8A%E5%95%86%E5%BA%97%E8%A1%97%20%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 御幸通商店街"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://himeji-miyuki.com/" target="_blank" rel="noopener" aria-label="景點介紹網站：御幸通商店街"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">御幸通商店街</h3>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+              <span class="tl-leg-text">步行約 15 分</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item is-stay">
+          <div class="tl-time"><time datetime="16:30">16:30</time><span class="tl-status">抵達</span></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">Comfort Hotel Himeji</h3>
+          </div>
+        </li>
+      </ol>
+      <p class="drive-note">步行時間為估算，實際請以 Google 路線為準</p>
+    </section>
+
     <section class="panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" tabindex="0" hidden>
       <header class="panel-head">
         <div>
@@ -2049,6 +2268,200 @@
         </li>
       </ol>
 
+      <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
+    </section>
+
+    <section class="panel" id="panel-5-v2" role="tabpanel" aria-labelledby="tab-5" tabindex="0" hidden>
+      <header class="panel-head">
+        <div>
+          <p class="panel-date"><time datetime="2026-12-02">2026/12/02（三）</time></p>
+          <h2 class="panel-title">姬路城・龍野 → 赤穗</h2>
+        </div>
+        <p class="panel-note"><svg class="icon" aria-hidden="true"><use href="#i-onsen"></use></svg>住宿 赤穗溫泉</p>
+      </header>
+      <ol class="timeline">
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="09:30">09:30</time><span class="tl-status">退房・出發</span></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">Comfort Hotel Himeji</h3>
+            <p class="tl-extra-hint">行李上車</p>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 5 分（含停車）</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.82847,134.69506&amp;destination=34.83535,134.69620&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="09:40">09:40</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
+              <span class="duration">停留 1 小時 30 分</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%9F%8E" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路城"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.himejicastle.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：姬路城"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">姬路城</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v2-himeji-ticket">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                套票資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v2-himeji-ticket" hidden>
+                <p class="tl-extra-title">姫路城・好古園 共通券</p>
+                <ul class="fact-list">
+                  <li><strong>共通券</strong>：大人 ¥2,600 → 兩大一小 <strong>¥5,200</strong> (18 歲以下免費，好古園含在內)</li>
+                  <li><strong>本版本未排姬路文學館</strong> (若想加：常設展 ¥450/大人、18 歲以下免費)</li>
+                  <li><strong>線上預售</strong>：デジタルチケット「しらさぎチケット」可事先選日期與 30 分鐘時段購票 (含共通券)，當天掃 QR code 免排售票口 → <a href="https://himejicastle-ticket.jp/" target="_blank" rel="noopener">https://himejicastle-ticket.jp/</a>。12/2 為淡季平日，現場购票人潮通常不多，可自行斟酌</li>
+                  <li><strong>注意</strong>：網路上「大人 ¥1,000、共通券 ¥1,050」為 2026/2 以前的舊價，2026/3/1 起已調漲，以官方為準</li>
+                  <li><strong>ループバス一日券不適用</strong>：城周邊觀光循環巴士 12 月～2 月僅週六日行駛，12/2 (週三) 停駛、一日券停售；且其折扣不能與共通券併用。市區交通用步行 (JR 姫路站→姬路城約 20 分) 或神姫バス (¥210)</li>
+                  <li><strong>開城時間</strong>：9:00–17:00 (入城至 16:00)；休城日僅 12/29–30，12/2 正常開放</li>
+                  <li>小提醒：每年 12/11 世界遺產登錄紀念日全設施免費 (你 12/2 參觀，此為參考資訊)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+              <span class="tl-leg-text">步行約 7 分</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="11:15">11:15</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
+              <span class="duration">停留 45 分</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A5%BD%E5%8F%A4%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 好古園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.himeji-machishin.jp/ryokka/kokoen/" target="_blank" rel="noopener" aria-label="景點介紹網站：好古園"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">好古園</h3>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 30 分 · 19 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.83797,134.68961&amp;destination=34.86726,134.54208&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="12:35">12:35</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-food"></use></svg>餐廳</span>
+              <span class="duration">停留 1 小時</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%9F%E3%81%A4%E3%81%AE%E5%B8%82%20%E9%BE%8D%E9%87%8E%E7%94%BA%20%E8%A6%B3%E5%85%89%E9%A7%90%E8%BB%8A%E5%A0%B4" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 龍野老街散策・午餐"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">龍野老街散策・午餐</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v2-tatsuno-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v2-tatsuno-extra" hidden>
+                <p class="tl-extra-title">龍野散策資訊</p>
+                <p>市営観光駐車場 (免費)；推薦 クラテラスたつの (咖啡/軽食 10:00–17:00、週一休)、うすくち龍野醤油資料館 (¥10、09:00–17:00、週一休)；「播磨の小京都」老街散步</p>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+              <span class="tl-leg-text">步行約 5 分</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="13:45">13:45</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
+              <span class="duration">停留 1 小時</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%98%AD%E5%92%8C%E3%83%AC%E3%83%88%E3%83%AD%E6%83%85%E6%99%AF%E9%A4%A8" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 昭和レトロ情景館"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="http://syouwa-retro.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：昭和レトロ情景館"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">昭和レトロ情景館</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v2-retro-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v2-retro-extra" hidden>
+                <p class="tl-extra-title">昭和レトロ情景館</p>
+                <dl class="kv">
+                  <dt>營業</dt>
+                  <dd>11:00–16:30 (最後入館 15:00)</dd>
+                  <dt>休館</dt>
+                  <dd>週一・週二 (12/02 週三正常營業)</dd>
+                  <dt>票價</dt>
+                  <dd>大人 ¥550、中小學生 ¥300、小學生未滿免費</dd>
+                  <dt>電話</dt>
+                  <dd><a href="tel:09092831925">090-9283-1925</a></dd>
+                  <dt>停車</dt>
+                  <dd>無專用停車場 (市営観光駐車場步行 5 分)</dd>
+                  <dt>看點</dt>
+                  <dd>每小時 00 分列車運行 10 分、30 分夕景點燈 10 分；參觀約 1 小時</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 36 分 · 29 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.86726,134.54208&amp;destination=34.72795,134.40799&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="15:30">15:30</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
+              <span class="duration">停留 1 小時</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%8D%E3%82%89%E3%81%8D%E3%82%89%E5%9D%82%20%E8%B5%A4%E7%A9%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 きらきら坂"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.city.ako.lg.jp/kensetsu/kankou/shisetsu/kanko/kirakirasaka.html" target="_blank" rel="noopener" aria-label="景點介紹網站：きらきら坂"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">Kirakira-saka</h3>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+              <span class="tl-leg-text">步行約 5 分</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item is-stay">
+          <div class="tl-time"><time datetime="16:35">16:35</time><span class="tl-status">抵達</span></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-onsen"></use></svg>溫泉</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%8A%80%E6%B3%A2%E8%8D%98%20%E8%B5%A4%E7%A9%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 赤穗溫泉夕映之宿銀波莊"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">赤穗溫泉夕映之宿銀波莊 (Ginpaso)</h3>
+          </div>
+        </li>
+      </ol>
       <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
     </section>
 
@@ -2773,9 +3186,9 @@
       var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
       if (!tabs.length) return;
 
-      var panels = tabs.map(function (tab) {
-        return document.getElementById(tab.getAttribute("aria-controls"));
-      });
+      var versionButtons = Array.prototype.slice.call(document.querySelectorAll(".version-btn"));
+      var versionPanelIds = ["panel-4", "panel-4-v2", "panel-5", "panel-5-v2"];
+      var version = 1;
 
       function centerTab(tab) {
         var listRect = tablist.getBoundingClientRect();
@@ -2793,12 +3206,17 @@
         var opts = options || {};
         var activePanel = null;
 
-        tabs.forEach(function (item, index) {
+        versionPanelIds.forEach(function (id) {
+          var panel = document.getElementById(id);
+          if (panel) panel.hidden = true;
+        });
+
+        tabs.forEach(function (item) {
           var selected = item === tab;
           item.setAttribute("aria-selected", selected ? "true" : "false");
           item.tabIndex = selected ? 0 : -1;
 
-          var panel = panels[index];
+          var panel = document.getElementById(item.getAttribute("aria-controls"));
           if (panel) {
             panel.hidden = !selected;
             if (selected) activePanel = panel;
@@ -2815,6 +3233,73 @@
           activePanel.focus({ preventScroll: true });
         }
       }
+
+      function setVersion(next) {
+        version = next;
+        versionButtons.forEach(function (btn) {
+          btn.setAttribute(
+            "aria-pressed",
+            btn.getAttribute("data-version") === String(version) ? "true" : "false"
+          );
+        });
+
+        tabs.forEach(function (tab) {
+          if (tab.id === "tab-4") {
+            tab.setAttribute("aria-controls", version === 2 ? "panel-4-v2" : "panel-4");
+          } else if (tab.id === "tab-5") {
+            tab.setAttribute("aria-controls", version === 2 ? "panel-5-v2" : "panel-5");
+          }
+
+          var themeV1 = tab.getAttribute("data-theme-v1");
+          var themeV2 = tab.getAttribute("data-theme-v2");
+          if (themeV1 !== null && themeV2 !== null) {
+            var theme = tab.querySelector(".tab-theme");
+            if (theme) theme.textContent = version === 2 ? themeV2 : themeV1;
+          }
+        });
+
+        document.documentElement.setAttribute("data-version", String(version));
+
+        var selected = tabs.filter(function (tab) {
+          return tab.getAttribute("aria-selected") === "true";
+        })[0] || tabs[0];
+
+        selectTab(selected, { scroll: false });
+      }
+
+      versionButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          setVersion(parseInt(btn.getAttribute("data-version"), 10));
+        });
+
+        btn.addEventListener("keydown", function (event) {
+          var index = versionButtons.indexOf(btn);
+          var next = null;
+
+          switch (event.key) {
+            case "ArrowRight":
+            case "ArrowDown":
+              next = versionButtons[(index + 1) % versionButtons.length];
+              break;
+            case "ArrowLeft":
+            case "ArrowUp":
+              next = versionButtons[(index - 1 + versionButtons.length) % versionButtons.length];
+              break;
+            case "Home":
+              next = versionButtons[0];
+              break;
+            case "End":
+              next = versionButtons[versionButtons.length - 1];
+              break;
+            default:
+              return;
+          }
+
+          event.preventDefault();
+          next.focus();
+          setVersion(parseInt(next.getAttribute("data-version"), 10));
+        });
+      });
 
       tabs.forEach(function (tab) {
         tab.addEventListener("click", function () {
