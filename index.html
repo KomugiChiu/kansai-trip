@@ -253,6 +253,49 @@
       box-shadow: 0 14px 30px rgba(111, 127, 92, .26);
     }
 
+    .hero-links { margin-top: 1.7rem; }
+
+    .hero-links-label {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      color: var(--muted);
+    }
+
+    .hero-links-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-top: .55rem;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .38rem;
+      padding: .42rem .85rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, .8);
+      color: var(--ink-soft);
+      font-size: .78rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: .03em;
+      text-decoration: none;
+      transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+    }
+
+    .hero-link .icon { width: 14px; height: 14px; color: var(--matcha); }
+
+    @media (hover: hover) {
+      .hero-link:hover {
+        color: var(--matcha-deep);
+        border-color: #cfd8c1;
+        background: #fbfcf7;
+      }
+    }
+
     .hero-mark {
       position: absolute;
       right: max(1.5rem, calc((100vw - var(--maxw)) / 2));
@@ -476,6 +519,57 @@
       color: var(--ink-soft);
       font-variant-numeric: tabular-nums;
     }
+
+    .tl-status {
+      display: block;
+      margin-top: .05rem;
+      font-size: .66rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+
+    .tl-leg {
+      grid-column: 2;
+      padding-top: .5rem;
+    }
+
+    .tl-leg-chip {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .22rem .4rem;
+      max-width: 100%;
+      margin-left: calc(var(--tl-gap) / -2);
+      padding: .2rem .58rem;
+      border: 1px solid var(--line-soft);
+      border-radius: 999px;
+      background: #f3f0e7;
+      font-size: .7rem;
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: .03em;
+      color: var(--ink-soft);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .tl-leg-icon { font-size: .8rem; line-height: 1; }
+
+    .tl-leg-note {
+      font-size: .66rem;
+      color: var(--muted);
+    }
+
+    .tl-leg-nav {
+      color: var(--matcha-deep);
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 1px solid rgba(111, 127, 92, .35);
+    }
+
+    .tl-leg-nav:hover { border-bottom-color: var(--matcha-deep); }
 
     .tl-card {
       position: relative;
@@ -796,6 +890,14 @@
       color: var(--ink);
     }
 
+    .drive-note {
+      margin-top: .9rem;
+      font-size: .68rem;
+      line-height: 1.7;
+      letter-spacing: .03em;
+      color: var(--muted);
+    }
+
     .tl-item.is-stay .tl-card {
       background: linear-gradient(180deg, #f7f9f1 0%, #f1f5e8 100%);
       border-color: #d9e3ca;
@@ -903,8 +1005,8 @@
     @media print {
       body { background: #fff; }
       .hero { padding: 1rem 0; background: none; }
-      .hero-mark, .hero::before, .hero::after, .tabs, .btn, .skip-link { display: none !important; }
-      .panel, .panel[hidden] { display: block !important; max-width: none; padding: 1.5rem 0; break-before: page; }
+      .hero-mark, .hero::before, .hero::after, .tabs, .btn, .hero-links, .skip-link { display: none !important; }
+      .panel, .panel[hidden] { display: block !important; max-width: none; padding: 1.5rem 0; opacity: 1 !important; animation: none !important; break-before: page; }
       .panel:first-of-type { break-before: auto; }
       .tl-card { box-shadow: none; break-inside: avoid; }
       .tl-extra { display: block; }
@@ -987,6 +1089,15 @@
     <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
       <path d="m6.5 9.5 5.5 5.5 5.5-5.5"/>
     </symbol>
+    <symbol id="i-weather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8.5" cy="8.5" r="3"/>
+      <path d="M8.5 3.2v1.1M3.4 4.6l.8.8M2.6 8.5h1.1M3.4 12.4l.8-.8M13.6 4.6l-.8.8"/>
+      <path d="M8.8 18h8.1a3.6 3.6 0 0 0 .3-7.2 5 5 0 0 0-9.4-1.2A4.2 4.2 0 0 0 8.8 18Z"/>
+    </symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 19c0-7.2 5-12.3 14-13.3C19 15 14 20 5 20v-1Z"/>
+      <path d="M5 19c2.2-4.2 5.2-7.2 9.2-9.2"/>
+    </symbol>
   </svg>
 
   <header class="hero">
@@ -1002,9 +1113,17 @@
         <li>神戶 → 姬路 → 赤穗 → 倉敷 → 高松</li>
       </ul>
       <a class="btn" href="https://chictrip-share.app.link/RVwtskBXj8b" target="_blank" rel="noopener">
-        用去趣查看行程細節
+        查看行程細節
         <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
       </a>
+      <div class="hero-links">
+        <p class="hero-links-label">旅行實用連結</p>
+        <ul class="hero-links-list">
+          <li><a class="hero-link" href="https://weathernews.jp/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-weather"></use></svg>Weathernews 天気予報</a></li>
+          <li><a class="hero-link" href="https://weathernews.jp/koyo/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg>Weathernews 紅葉情報</a></li>
+          <li><a class="hero-link" href="https://tenki.jp/kouyou/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg>tenki.jp 紅葉見頃</a></li>
+        </ul>
+      </div>
     </div>
     <span class="hero-mark" aria-hidden="true">08</span>
   </header>
@@ -1131,11 +1250,10 @@
           </div>
         </li>
         <li class="tl-item is-stay">
-          <div class="tl-time"><time datetime="15:38">15:38</time></div>
+          <div class="tl-time"><time datetime="15:38">15:38</time><span class="tl-status">抵達</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A8%E3%83%A9%E7%A5%9E%E6%88%B8%E4%B8%89%E5%AE%AE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel ERA Kobe Sannomiya"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel ERA Kobe Sannomiya</h3>
@@ -1154,11 +1272,10 @@
       </header>
       <ol class="timeline">
         <li class="tl-item">
-          <div class="tl-time"><time datetime="08:00">08:00</time></div>
+          <div class="tl-time"><time datetime="10:00">10:00</time><span class="tl-status">退房</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 2 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A8%E3%83%A9%E7%A5%9E%E6%88%B8%E4%B8%89%E5%AE%AE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel ERA Kobe Sannomiya"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel ERA Kobe Sannomiya</h3>
@@ -1209,11 +1326,10 @@
           </div>
         </li>
         <li class="tl-item is-stay">
-          <div class="tl-time"><time datetime="15:00">15:00</time></div>
+          <div class="tl-time"><time datetime="15:00">15:00</time><span class="tl-status">抵達</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A8%E3%83%A9%E7%A5%9E%E6%88%B8%E4%B8%89%E5%AE%AE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel ERA Kobe Sannomiya"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel ERA Kobe Sannomiya</h3>
@@ -1232,11 +1348,10 @@
       </header>
       <ol class="timeline">
         <li class="tl-item">
-          <div class="tl-time"><time datetime="08:00">08:00</time></div>
+          <div class="tl-time"><time datetime="10:00">10:00</time><span class="tl-status">退房</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A8%E3%83%A9%E7%A5%9E%E6%88%B8%E4%B8%89%E5%AE%AE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel ERA Kobe Sannomiya"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel ERA Kobe Sannomiya</h3>
@@ -1259,6 +1374,12 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+                <span class="tl-leg-text">步行約 7 分</span>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="09:04">09:04</time></div>
@@ -1290,6 +1411,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 16 分 · 12 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.69731,135.19902&amp;destination=34.65124,135.11630&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="10:17">10:17</time></div>
@@ -1321,6 +1449,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 13 分 · 9 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.65124,135.11630&amp;destination=34.62965,135.04601&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="11:32">11:32</time></div>
@@ -1353,6 +1488,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 4 分 · 2 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.62965,135.04601&amp;destination=34.63166,135.03561&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="12:39">12:39</time></div>
@@ -1384,13 +1526,19 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 56 分 · 45 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.63166,135.03561&amp;destination=34.82847,134.69506&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item is-stay">
-          <div class="tl-time"><time datetime="14:32">14:32</time></div>
+          <div class="tl-time"><time datetime="15:00">15:00</time><span class="tl-status">抵達</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel Himeji</h3>
@@ -1417,6 +1565,8 @@
           </div>
         </li>
       </ol>
+
+      <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
     </section>
 
     <section class="panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" tabindex="0" hidden>
@@ -1429,11 +1579,10 @@
       </header>
       <ol class="timeline">
         <li class="tl-item">
-          <div class="tl-time"><time datetime="08:00">08:00</time></div>
+          <div class="tl-time"><time datetime="10:00">10:00</time><span class="tl-status">退房</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel Himeji</h3>
@@ -1516,17 +1665,18 @@
           </div>
         </li>
         <li class="tl-item is-stay">
-          <div class="tl-time"><time datetime="14:54">14:54</time></div>
+          <div class="tl-time"><time datetime="15:00">15:00</time><span class="tl-status">抵達</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel Himeji</h3>
           </div>
         </li>
       </ol>
+
+      <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
     </section>
 
     <section class="panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" tabindex="0" hidden>
@@ -1539,11 +1689,10 @@
       </header>
       <ol class="timeline">
         <li class="tl-item">
-          <div class="tl-time"><time datetime="08:00">08:00</time></div>
+          <div class="tl-time"><time datetime="10:00">10:00</time><span class="tl-status">退房</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 2 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Comfort Hotel Himeji"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">Comfort Hotel Himeji</h3>
@@ -1568,6 +1717,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 32 分 · 25 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.82847,134.69506&amp;destination=34.99214,134.59280&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="10:43">10:43</time></div>
@@ -1597,6 +1753,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 11 分 · 7 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.99214,134.59280&amp;destination=34.98402,134.53936&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="11:16">11:16</time></div>
@@ -1634,6 +1797,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 5 分 · 2 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.98402,134.53936&amp;destination=34.98603,134.52274&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="12:31">12:31</time></div>
@@ -1683,6 +1853,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 57 分 · 45 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.98603,134.52274&amp;destination=34.72795,134.40799&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="16:24">16:24</time></div>
@@ -1712,13 +1889,18 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+                <span class="tl-leg-text">步行約 5 分</span>
+              </span>
+            </div>
         </li>
         <li class="tl-item is-stay">
-          <div class="tl-time"><time datetime="17:26">17:26</time></div>
+          <div class="tl-time"><time datetime="17:30">17:30</time><span class="tl-status">抵達</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-onsen"></use></svg>溫泉</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%8A%80%E6%B3%A2%E8%8D%98%20%E8%B5%A4%E7%A9%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 赤穗溫泉夕映之宿銀波莊 (Ginpaso)"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">赤穗溫泉夕映之宿銀波莊 (Ginpaso)</h3>
@@ -1745,6 +1927,8 @@
           </div>
         </li>
       </ol>
+
+      <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
     </section>
 
     <section class="panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6" tabindex="0" hidden>
@@ -1757,11 +1941,10 @@
       </header>
       <ol class="timeline">
         <li class="tl-item">
-          <div class="tl-time"><time datetime="08:00">08:00</time></div>
+          <div class="tl-time"><time datetime="10:00">10:00</time><span class="tl-status">退房</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-onsen"></use></svg>溫泉</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%8A%80%E6%B3%A2%E8%8D%98%20%E8%B5%A4%E7%A9%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 赤穗溫泉夕映之宿銀波莊 (Ginpaso)"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">赤穗溫泉夕映之宿銀波莊 (Ginpaso)</h3>
@@ -1786,6 +1969,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 5 分 · 2 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.72688,134.40756&amp;destination=34.73501,134.40207&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="09:09">09:09</time></div>
@@ -1817,6 +2007,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 5 分 · 3 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.73501,134.40207&amp;destination=34.74897,134.38839&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="10:20">10:20</time></div>
@@ -1848,6 +2045,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 30 分 · 21 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.74897,134.38839&amp;destination=34.79355,134.21958&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="11:49">11:49</time></div>
@@ -1879,6 +2083,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 58 分 · 56 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.79355,134.21958&amp;destination=34.59565,133.77163&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="13:46">13:46</time></div>
@@ -1906,13 +2117,18 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+                <span class="tl-leg-text">步行約 6 分</span>
+              </span>
+            </div>
         </li>
         <li class="tl-item is-stay">
-          <div class="tl-time"><time datetime="14:52">14:52</time></div>
+          <div class="tl-time"><time datetime="15:00">15:00</time><span class="tl-status">抵達</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E3%82%A2%E3%82%A4%E3%83%93%E3%83%BC%E3%82%B9%E3%82%AF%E3%82%A8%E3%82%A2" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷長春藤廣場酒店"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">倉敷長春藤廣場酒店</h3>
@@ -1937,6 +2153,8 @@
           </div>
         </li>
       </ol>
+
+      <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
     </section>
 
     <section class="panel" id="panel-7" role="tabpanel" aria-labelledby="tab-7" tabindex="0" hidden>
@@ -1949,11 +2167,10 @@
       </header>
       <ol class="timeline">
         <li class="tl-item">
-          <div class="tl-time"><time datetime="08:00">08:00</time></div>
+          <div class="tl-time"><time datetime="10:00">10:00</time><span class="tl-status">退房</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E3%82%A2%E3%82%A4%E3%83%93%E3%83%BC%E3%82%B9%E3%82%AF%E3%82%A8%E3%82%A2" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷長春藤廣場酒店"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">倉敷長春藤廣場酒店</h3>
@@ -1976,6 +2193,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 9 分 · 4 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.59460,133.77339&amp;destination=34.57289,133.79848&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="09:11">09:11</time></div>
@@ -2005,6 +2229,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 30 分 · 22 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.57289,133.79848&amp;destination=34.43433,133.81321&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="10:41">10:41</time></div>
@@ -2036,6 +2267,14 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 30 分 · 23 km</span>
+                <span class="tl-leg-note">經瀬戸大橋</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.43433,133.81321&amp;destination=34.32000,133.83105&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="12:08">12:08</time></div>
@@ -2067,13 +2306,19 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 34 分 · 31 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.32000,133.83105&amp;destination=34.33865,134.04893&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item is-stay">
-          <div class="tl-time"><time datetime="13:49">13:49</time></div>
+          <div class="tl-time"><time datetime="15:00">15:00</time><span class="tl-status">抵達</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-onsen"></use></svg>溫泉</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9B%E3%83%86%E3%83%AB%E9%AB%98%E6%9D%BE%E7%94%B0%E7%94%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 天然溫泉讚岐之湯 Super Hotel高松田町"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">天然溫泉讚岐之湯 Super Hotel高松田町</h3>
@@ -2100,6 +2345,8 @@
           </div>
         </li>
       </ol>
+
+      <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
     </section>
 
     <section class="panel" id="panel-8" role="tabpanel" aria-labelledby="tab-8" tabindex="0" hidden>
@@ -2112,11 +2359,10 @@
       </header>
       <ol class="timeline">
         <li class="tl-item">
-          <div class="tl-time"><time datetime="08:00">08:00</time></div>
+          <div class="tl-time"><time datetime="10:00">10:00</time><span class="tl-status">退房</span></div>
           <div class="tl-card">
             <div class="tl-meta">
               <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
-              <span class="duration">停留 1 小時</span>
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9B%E3%83%86%E3%83%AB%E9%AB%98%E6%9D%BE%E7%94%B0%E7%94%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 天然溫泉讚岐之湯 Super Hotel高松田町"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">天然溫泉讚岐之湯 Super Hotel高松田町</h3>
@@ -2141,6 +2387,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 6 分 · 3 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.33865,134.04893&amp;destination=34.32950,134.04393&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="09:09">09:09</time></div>
@@ -2172,6 +2425,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 17 分 · 11 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.32950,134.04393&amp;destination=34.35668,134.10132&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="10:36">10:36</time></div>
@@ -2203,6 +2463,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 31 分 · 23 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.35668,134.10132&amp;destination=34.24550,134.03008&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="12:16">12:16</time></div>
@@ -2234,6 +2501,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 3 分 · 1 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.24550,134.03008&amp;destination=34.24064,134.02845&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="13:21">13:21</time></div>
@@ -2265,6 +2539,13 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+                <span class="tl-leg-text">約 2 分 · 1 km</span>
+                <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.24064,134.02845&amp;destination=34.23944,134.01957&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="14:27">14:27</time></div>
@@ -2296,6 +2577,12 @@
               </div>
             </div>
           </div>
+            <div class="tl-leg">
+              <span class="tl-leg-chip">
+                <span class="tl-leg-icon" aria-hidden="true">🚌</span>
+                <span class="tl-leg-text">租車公司免費接駁 約 3 分</span>
+              </span>
+            </div>
         </li>
         <li class="tl-item">
           <div class="tl-time"><time datetime="16:30">16:30</time></div>
@@ -2308,6 +2595,8 @@
           </div>
         </li>
       </ol>
+
+      <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
     </section>
   </main>
 
@@ -2315,7 +2604,7 @@
     <div class="footer-inner">
       <div>
         <p class="footer-brand">關西・山陽・四國 8 日旅程</p>
-        <p>行程資料來源：<a href="https://chictrip-share.app.link/RVwtskBXj8b" target="_blank" rel="noopener">去趣 chictrip</a></p>
+        <p>行程資料來源：<a href="https://chictrip-share.app.link/RVwtskBXj8b" target="_blank" rel="noopener">chictrip 分享連結</a></p>
       </div>
       <div class="footer-note">
         <p>頁面建立於 2026 年 11 月</p>

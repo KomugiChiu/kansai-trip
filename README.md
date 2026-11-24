@@ -4,7 +4,7 @@
 
 - 行程路線：神戶 → 姬路 → 赤穗溫泉 → 倉敷 → 高松
 - 頁面為單一 `index.html`，所有 CSS / JS / SVG 圖示皆內嵌，不依賴任何 CDN、外部字型或圖片，可離線開啟。
-- 行程資料來源：[去趣 chictrip](https://chictrip-share.app.link/RVwtskBXj8b)
+- 行程資料來源：[chictrip 分享連結](https://chictrip-share.app.link/RVwtskBXj8b)
 
 ## 檔案
 
@@ -45,5 +45,5 @@ python3 -m http.server 8000
 
 ## 備註
 
-- 行程時間與停留長度依去趣行程原始資料呈現，實際狀況請以現場為準。
+- 行程時間與停留長度依 chictrip 分享的原始行程資料呈現，實際狀況請以現場為準。
 - 頁面建立於 2026 年 11 月。
