@@ -309,7 +309,7 @@
       flex-direction: column;
       gap: .05rem;
       min-width: 6.6rem;
-      padding: .62rem .95rem .78rem;
+      padding: .62rem .62rem .78rem;
       border: 0;
       border-bottom: 2px solid transparent;
       border-radius: 10px 10px 0 0;
@@ -324,7 +324,7 @@
     .tab-top {
       display: flex;
       align-items: baseline;
-      gap: .4rem;
+      gap: .28rem;
     }
 
     .tab-day {
@@ -336,10 +336,17 @@
     }
 
     .tab-date {
-      font-size: .7rem;
+      font-size: .68rem;
       letter-spacing: .03em;
       font-variant-numeric: tabular-nums;
       color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .dow {
+      font-size: .8em;
+      letter-spacing: 0;
+      opacity: .8;
     }
 
     .tab-theme {
@@ -982,35 +989,35 @@
     <nav class="tabs" aria-label="每日行程分頁">
       <div class="tabs-scroll" role="tablist" aria-label="Day 1 至 Day 8" aria-orientation="horizontal">
         <button type="button" class="tab" id="tab-1" role="tab" aria-selected="true" aria-controls="panel-1" tabindex="0">
-          <span class="tab-top"><span class="tab-day">Day 1</span><span class="tab-date">11/28</span></span>
+          <span class="tab-top"><span class="tab-day">Day 1</span><span class="tab-date">11/28 <span class="dow">（六）</span></span></span>
           <span class="tab-theme">抵達神戶</span>
         </button>
         <button type="button" class="tab" id="tab-2" role="tab" aria-selected="false" aria-controls="panel-2" tabindex="-1">
-          <span class="tab-top"><span class="tab-day">Day 2</span><span class="tab-date">11/29</span></span>
+          <span class="tab-top"><span class="tab-day">Day 2</span><span class="tab-date">11/29 <span class="dow">（日）</span></span></span>
           <span class="tab-theme">神戶市區</span>
         </button>
         <button type="button" class="tab" id="tab-3" role="tab" aria-selected="false" aria-controls="panel-3" tabindex="-1">
-          <span class="tab-top"><span class="tab-day">Day 3</span><span class="tab-date">11/30</span></span>
+          <span class="tab-top"><span class="tab-day">Day 3</span><span class="tab-date">11/30 <span class="dow">（一）</span></span></span>
           <span class="tab-theme">租車自駕往姬路</span>
         </button>
         <button type="button" class="tab" id="tab-4" role="tab" aria-selected="false" aria-controls="panel-4" tabindex="-1">
-          <span class="tab-top"><span class="tab-day">Day 4</span><span class="tab-date">12/01</span></span>
+          <span class="tab-top"><span class="tab-day">Day 4</span><span class="tab-date">12/01 <span class="dow">（二）</span></span></span>
           <span class="tab-theme">姬路城漫遊</span>
         </button>
         <button type="button" class="tab" id="tab-5" role="tab" aria-selected="false" aria-controls="panel-5" tabindex="-1">
-          <span class="tab-top"><span class="tab-day">Day 5</span><span class="tab-date">12/02</span></span>
+          <span class="tab-top"><span class="tab-day">Day 5</span><span class="tab-date">12/02 <span class="dow">（三）</span></span></span>
           <span class="tab-theme">姬路 → 赤穗溫泉</span>
         </button>
         <button type="button" class="tab" id="tab-6" role="tab" aria-selected="false" aria-controls="panel-6" tabindex="-1">
-          <span class="tab-top"><span class="tab-day">Day 6</span><span class="tab-date">12/03</span></span>
+          <span class="tab-top"><span class="tab-day">Day 6</span><span class="tab-date">12/03 <span class="dow">（四）</span></span></span>
           <span class="tab-theme">赤穗 → 倉敷</span>
         </button>
         <button type="button" class="tab" id="tab-7" role="tab" aria-selected="false" aria-controls="panel-7" tabindex="-1">
-          <span class="tab-top"><span class="tab-day">Day 7</span><span class="tab-date">12/04</span></span>
+          <span class="tab-top"><span class="tab-day">Day 7</span><span class="tab-date">12/04 <span class="dow">（五）</span></span></span>
           <span class="tab-theme">倉敷 → 高松</span>
         </button>
         <button type="button" class="tab" id="tab-8" role="tab" aria-selected="false" aria-controls="panel-8" tabindex="-1">
-          <span class="tab-top"><span class="tab-day">Day 8</span><span class="tab-date">12/05</span></span>
+          <span class="tab-top"><span class="tab-day">Day 8</span><span class="tab-date">12/05 <span class="dow">（六）</span></span></span>
           <span class="tab-theme">高松 → 回程</span>
         </button>
       </div>
