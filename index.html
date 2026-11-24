@@ -533,6 +533,138 @@
       overflow-wrap: anywhere;
     }
 
+    /* ---------- Extra info toggle ---------- */
+
+    .tl-extra { margin-top: .68rem; }
+
+    .tl-extra-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: .34rem;
+      padding: .3rem .72rem .3rem .58rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font: inherit;
+      font-size: .74rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+    }
+
+    .tl-extra-toggle .icon { width: 13px; height: 13px; }
+    .tl-extra-toggle .icon--chevron { transition: transform .2s ease; }
+    .tl-extra-toggle[aria-expanded="true"] .icon--chevron { transform: rotate(180deg); }
+
+    @media (hover: hover) {
+      .tl-extra-toggle:hover {
+        color: var(--matcha-deep);
+        border-color: #cfd8c1;
+        background: #fbfcf7;
+      }
+    }
+
+    .tl-extra-panel {
+      margin-top: .6rem;
+      padding: .78rem .9rem .85rem;
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      background: #f7f4ec;
+      font-size: .82rem;
+      line-height: 1.8;
+      color: var(--ink-soft);
+    }
+
+    .tl-extra-title {
+      margin-bottom: .55rem;
+      padding-left: .55rem;
+      border-left: 2px solid var(--matcha);
+      font-size: .78rem;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: .06em;
+      color: var(--matcha-deep);
+    }
+
+    .tl-extra-panel a {
+      color: var(--matcha-deep);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(111, 127, 92, .35);
+    }
+    .tl-extra-panel a:hover { border-bottom-color: var(--matcha-deep); }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 4.6rem minmax(0, 1fr);
+      gap: .32rem .75rem;
+      margin: 0;
+    }
+
+    .kv dt {
+      padding-top: .08rem;
+      font-size: .74rem;
+      font-weight: 600;
+      line-height: 1.7;
+      letter-spacing: .04em;
+      color: var(--muted);
+    }
+
+    .kv dd {
+      margin: 0;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .kv--spaced { margin-top: .55rem; }
+
+    .kv-sub {
+      margin: .55rem 0 .2rem;
+      font-size: .74rem;
+      font-weight: 600;
+      line-height: 1.7;
+      letter-spacing: .04em;
+      color: var(--muted);
+    }
+
+    .bus-times {
+      display: grid;
+      gap: .24rem;
+      margin-bottom: .2rem;
+    }
+
+    .bus-times li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .1rem .42rem;
+      font-size: .82rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bus-times .bt-dep,
+    .bus-times .bt-arr {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .bus-times .bt-arrow { color: var(--matcha); }
+
+    .bt-note {
+      font-size: .72rem;
+      letter-spacing: .03em;
+      color: var(--muted);
+    }
+
+    .tl-extra-hint {
+      margin-top: .3rem;
+      font-size: .78rem;
+      line-height: 1.75;
+      color: var(--matcha-deep);
+    }
+
     .tl-item.is-stay .tl-card {
       background: linear-gradient(180deg, #f7f9f1 0%, #f1f5e8 100%);
       border-color: #d9e3ca;
@@ -612,7 +744,15 @@
       .tl-card { padding: .82rem .9rem .9rem; border-radius: 12px; }
       .tl-name { font-size: .95rem; }
       .duration { font-size: .72rem; }
+      .tl-extra-panel { padding: .7rem .75rem .78rem; font-size: .8rem; }
+      .kv { grid-template-columns: 3.9rem minmax(0, 1fr); gap: .3rem .6rem; }
       .footer-note { text-align: left; }
+    }
+
+    @media (max-width: 420px) {
+      .kv { grid-template-columns: minmax(0, 1fr); gap: .1rem; }
+      .kv dt { padding-top: .4rem; font-size: .72rem; }
+      .kv-sub { margin-top: .5rem; }
     }
 
     @media (max-width: 380px) {
@@ -635,6 +775,8 @@
       .panel, .panel[hidden] { display: block !important; max-width: none; padding: 1.5rem 0; break-before: page; }
       .panel:first-of-type { break-before: auto; }
       .tl-card { box-shadow: none; break-inside: avoid; }
+      .tl-extra-toggle { display: none !important; }
+      .tl-extra-panel, .tl-extra-panel[hidden] { display: block !important; }
       .site-footer { background: none; }
     }
   </style>
@@ -703,6 +845,14 @@
       <path d="M4 9h10"/>
       <path d="M14 21V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v17"/>
       <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 4 0V9l-3-3"/>
+    </symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.5"/>
+      <path d="M12 11.2v5.1"/>
+      <circle cx="12" cy="7.9" r=".9" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6.5 9.5 5.5 5.5 5.5-5.5"/>
     </symbol>
   </svg>
 
@@ -781,6 +931,26 @@
               <span class="duration">停留 1 小時</span>
             </div>
             <h3 class="tl-name">桃園機場第二航廈停車場</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day1-pickup-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day1-pickup-extra" hidden>
+                <p class="tl-extra-title">接送資訊</p>
+                <dl class="kv">
+                  <dt>航班</dt>
+                  <dd>CI152</dd>
+                  <dt>接送時間</dt>
+                  <dd>06:45</dd>
+                  <dt>車號</dt>
+                  <dd>RGD-6296</dd>
+                  <dt>電話</dt>
+                  <dd><a href="tel:0935340831">0935340831</a></dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
@@ -791,6 +961,40 @@
               <span class="duration">停留 1 小時</span>
             </div>
             <h3 class="tl-name">關西機場第一航站樓</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day1-limousine-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day1-limousine-extra" hidden>
+                <p class="tl-extra-title">利木津巴士 往神戶三宮</p>
+                <dl class="kv">
+                  <dt>上車地點</dt>
+                  <dd>第 1 航廈 1F「6 號乘車處」（6番のりば）</dd>
+                </dl>
+                <p class="kv-sub">最接近的三班次（第 1 航廈發車 → 抵達神戶三宮）</p>
+                <ul class="bus-times">
+                  <li><span class="bt-dep">14:00</span><span class="bt-arrow" aria-hidden="true">→</span><span class="bt-arr">15:05</span><span class="bt-note">抵達三宮</span></li>
+                  <li><span class="bt-dep">14:15</span><span class="bt-arrow" aria-hidden="true">→</span><span class="bt-arr">15:20</span><span class="bt-note">抵達三宮</span></li>
+                  <li><span class="bt-dep">14:35</span><span class="bt-arrow" aria-hidden="true">→</span><span class="bt-arr">15:40</span><span class="bt-note">抵達三宮</span></li>
+                </ul>
+                <p class="tl-extra-hint">建議搭乘 14:00 或 14:15 班次，可於 15:38 前抵達三宮飯店；班距約 15–20 分鐘一班。</p>
+                <dl class="kv kv--spaced">
+                  <dt>票價</dt>
+                  <dd>
+                    大人 ¥2,200 / 小孩 ¥1,100（單程）；往復票 ¥3,700（30 日內有效）。<br>
+                    可使用 IC 卡、感應式信用卡或現金；車票可於第 1 航廈 1F 巴士乘車處旁的售票口購買（07:00–21:00）。
+                  </dd>
+                  <dt>車程</dt>
+                  <dd>約 65 分鐘（直達）；下車處為神戶三宮巴士總站（神戸三宮バスターミナル，JR 三宮站旁）。</dd>
+                  <dt>備註</dt>
+                  <dd>
+                    時刻與票價參考<a href="https://www.kate.co.jp/timetable/detail/KB" target="_blank" rel="noopener">関西空港交通官網</a>（2026/11 版）。2026/12/1 起神戶線票價將調整，11/28 乘車日仍為 ¥2,200。
+                  </dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item is-stay">
@@ -1405,6 +1609,24 @@
       })[0] || tabs[0];
 
       selectTab(initial, { scroll: false });
+    }());
+
+    (function () {
+      "use strict";
+
+      var toggles = document.querySelectorAll(".tl-extra-toggle");
+      if (!toggles.length) return;
+
+      Array.prototype.forEach.call(toggles, function (toggle) {
+        var panel = document.getElementById(toggle.getAttribute("aria-controls"));
+        if (!panel) return;
+
+        toggle.addEventListener("click", function () {
+          var expanded = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+          panel.hidden = expanded;
+        });
+      });
     }());
   </script>
 </body>
