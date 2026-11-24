@@ -772,6 +772,30 @@
       color: var(--matcha);
     }
 
+    .fact-list {
+      display: grid;
+      gap: .3rem;
+      font-size: .8rem;
+      line-height: 1.8;
+    }
+
+    .fact-list li {
+      position: relative;
+      padding-left: .9rem;
+    }
+
+    .fact-list li::before {
+      content: "・";
+      position: absolute;
+      left: 0;
+      color: var(--matcha);
+    }
+
+    .fact-list strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
     .tl-item.is-stay .tl-card {
       background: linear-gradient(180deg, #f7f9f1 0%, #f1f5e8 100%);
       border-color: #d9e3ca;
@@ -1446,6 +1470,27 @@
               <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%9F%8E" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路城"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
             </div>
             <h3 class="tl-name">姬路城</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="day4-himeji-ticket">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                套票資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="day4-himeji-ticket" hidden>
+                <p class="tl-extra-title">姫路城・好古園 共通券</p>
+                <ul class="fact-list">
+                  <li><strong>建議購買「姫路城・好古園共通券」</strong>：大人 ¥2,600 (單買姬路城 ¥2,500 + 好古園 ¥400 = ¥2,900，共通券每人省 ¥300)；姬路城或好古園售票口皆可購買</li>
+                  <li><strong>18 歲以下免費</strong>：小孩免票 → 兩大一小共通券合計 <strong>¥5,200</strong></li>
+                  <li><strong>姫路文学館</strong> (常設展)：大人 ¥450、18 歲以下免費 → 兩大一小 <strong>¥900</strong> (共通券不含文学館，需單獨購票)</li>
+                  <li><strong>全日三家設施合計：約 ¥6,100 (兩大一小)</strong></li>
+                  <li><strong>線上預售</strong>：デジタルチケット「しらさぎチケット」可事先選日期與 30 分鐘時段購票 (含共通券)，當天掃 QR code 免排售票口 → <a href="https://himejicastle-ticket.jp/" target="_blank" rel="noopener">https://himejicastle-ticket.jp/</a>。12/1 為淡季平日，現場购票人潮通常不多，可自行斟酌</li>
+                  <li><strong>注意</strong>：網路上「大人 ¥1,000、共通券 ¥1,050」為 2026/2 以前的舊價，2026/3/1 起已調漲，以官方為準</li>
+                  <li><strong>ループバス一日券不適用</strong>：城周邊觀光循環巴士 12 月～2 月僅週六日行駛，12/1 (週二) 停駛、一日券停售；且其折扣不能與共通券併用。市區交通用步行 (JR 姫路站→姬路城約 20 分) 或神姫バス (¥210)</li>
+                  <li><strong>開城時間</strong>：9:00–17:00 (入城至 16:00)；休城日僅 12/29–30，12/1 正常開放</li>
+                  <li>小提醒：每年 12/11 世界遺產登錄紀念日全設施免費 (你 12/1 參觀，此為參考資訊)</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </li>
         <li class="tl-item">
