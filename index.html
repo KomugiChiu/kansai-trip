@@ -625,11 +625,11 @@
       font-variant-numeric: tabular-nums;
     }
 
-    .tl-map {
+    .tl-map,
+    .tl-intro {
       display: inline-flex;
       align-items: center;
       gap: .28rem;
-      margin-left: auto;
       padding: .18rem .62rem .18rem .48rem;
       border: 1px solid var(--line);
       border-radius: 999px;
@@ -644,10 +644,25 @@
       transition: color .2s ease, border-color .2s ease, background-color .2s ease;
     }
 
-    .tl-map .icon { width: 12px; height: 12px; color: var(--matcha); }
+    .tl-map { margin-left: auto; }
+
+    .tl-links {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-left: auto;
+    }
+
+    .tl-links .tl-map,
+    .tl-links .tl-intro { margin-left: 0; }
+
+    .tl-map .icon,
+    .tl-intro .icon { width: 12px; height: 12px; color: var(--matcha); }
 
     @media (hover: hover) {
-      .tl-map:hover {
+      .tl-map:hover,
+      .tl-intro:hover {
         color: var(--matcha-deep);
         border-color: #cfd8c1;
         background: #fbfcf7;
@@ -1098,6 +1113,11 @@
       <path d="M5 19c0-7.2 5-12.3 14-13.3C19 15 14 20 5 20v-1Z"/>
       <path d="M5 19c2.2-4.2 5.2-7.2 9.2-9.2"/>
     </symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/>
+      <path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/>
+      <path d="M8 7h8M8 10.5h6"/>
+    </symbol>
   </svg>
 
   <header class="hero">
@@ -1298,7 +1318,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 3 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%E3%81%A9%E3%81%86%E3%81%B6%E3%81%A4%E7%8E%8B%E5%9B%BD" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 神戶動物王國"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%E3%81%A9%E3%81%86%E3%81%B6%E3%81%A4%E7%8E%8B%E5%9B%BD" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 神戶動物王國"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.kobe-oukoku.com/" target="_blank" rel="noopener" aria-label="景點介紹網站：神戶動物王國"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">神戶動物王國</h3>
             <div class="tl-extra">
@@ -1339,7 +1362,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%E3%83%9D%E3%83%BC%E3%83%88%E3%82%BF%E3%83%AF%E3%83%BC" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 神戶港塔"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%E3%83%9D%E3%83%BC%E3%83%88%E3%82%BF%E3%83%AF%E3%83%BC" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 神戶港塔"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.kobe-port-tower.com/" target="_blank" rel="noopener" aria-label="景點介紹網站：神戶港塔"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">神戶港塔</h3>
           </div>
@@ -1453,7 +1479,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%E5%B8%82%E7%AB%8B%E9%A0%88%E7%A3%A8%E9%9B%A2%E5%AE%AE%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 須磨離宮公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%88%B8%E5%B8%82%E7%AB%8B%E9%A0%88%E7%A3%A8%E9%9B%A2%E5%AE%AE%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 須磨離宮公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.kobe-park.or.jp/rikyu/" target="_blank" rel="noopener" aria-label="景點介紹網站：須磨離宮公園"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">須磨離宮公園</h3>
             <div class="tl-extra">
@@ -1491,7 +1520,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%94%E8%89%B2%E5%A1%9A%E5%8F%A4%E5%A2%B3" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 五色塚古墳"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%94%E8%89%B2%E5%A1%9A%E5%8F%A4%E5%A2%B3" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 五色塚古墳"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.city.kobe.lg.jp/a21651/goshiki_guidance.html" target="_blank" rel="noopener" aria-label="景點介紹網站：五色塚古墳"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">五色塚古墳</h3>
             <p class="tl-warn">⚠ 行前請電話確認</p>
@@ -1530,7 +1562,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E7%AB%8B%E8%88%9E%E5%AD%90%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 兵庫縣立舞子公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E7%AB%8B%E8%88%9E%E5%AD%90%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 兵庫縣立舞子公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://hyogo-maikopark.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：兵庫縣立舞子公園"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">兵庫縣立舞子公園</h3>
             <div class="tl-extra">
@@ -1622,7 +1657,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%B8%82%E8%A6%B3%E5%85%89%E6%A1%88%E5%86%85%E6%89%80" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路市觀光案內所"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%B8%82%E8%A6%B3%E5%85%89%E6%A1%88%E5%86%85%E6%89%80" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路市觀光案內所"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.himeji-kanko.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：姬路市觀光案內所"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">姬路市觀光案內所</h3>
           </div>
@@ -1639,7 +1677,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%BF%E3%82%86%E3%81%8D%E9%80%9A%E3%82%8A%E5%95%86%E5%BA%97%E8%A1%97%20%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 御幸通商店街"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%BF%E3%82%86%E3%81%8D%E9%80%9A%E3%82%8A%E5%95%86%E5%BA%97%E8%A1%97%20%E5%A7%AB%E8%B7%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 御幸通商店街"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://himeji-miyuki.com/" target="_blank" rel="noopener" aria-label="景點介紹網站：御幸通商店街"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">御幸通商店街</h3>
           </div>
@@ -1656,7 +1697,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%9F%8E" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路城"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E5%9F%8E" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路城"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.himejicastle.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：姬路城"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">姬路城</h3>
             <div class="tl-extra">
@@ -1694,7 +1738,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A5%BD%E5%8F%A4%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 好古園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A5%BD%E5%8F%A4%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 好古園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.himeji-machishin.jp/ryokka/kokoen/" target="_blank" rel="noopener" aria-label="景點介紹網站：好古園"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">好古園</h3>
           </div>
@@ -1711,7 +1758,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E6%96%87%E5%AD%A6%E9%A4%A8" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路文學館"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A7%AB%E8%B7%AF%E6%96%87%E5%AD%A6%E9%A4%A8" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 姬路文學館"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.himejibungakukan.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：姬路文學館"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">姬路文學館</h3>
           </div>
@@ -1790,7 +1840,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-torii"></use></svg>神社</span>
               <span class="duration">停留 30 分鐘</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%89%E5%BF%97%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE%20%E5%A7%AB%E8%B7%AF%E5%B8%82%E5%AE%89%E5%AF%8C%E7%94%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 安志稲荷神社"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%AE%89%E5%BF%97%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE%20%E5%A7%AB%E8%B7%AF%E5%B8%82%E5%AE%89%E5%AF%8C%E7%94%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 安志稲荷神社"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.anji-kamojinja.com/" target="_blank" rel="noopener" aria-label="景點介紹網站：安志稲荷神社"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">安志稲荷神社</h3>
             <div class="tl-extra">
@@ -1826,7 +1879,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-food"></use></svg>餐廳</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=YAMASAND%20%E5%AE%8D%E7%B2%9F%E5%B8%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 YAMASAND"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=YAMASAND%20%E5%AE%8D%E7%B2%9F%E5%B8%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 YAMASAND"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.instagram.com/sandwich__factory_shiso/" target="_blank" rel="noopener" aria-label="景點介紹網站：YAMASAND"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">YAMASAND <span class="tl-name-sub">サンドイッチ専門店</span></h3>
             <div class="tl-extra">
@@ -1870,7 +1926,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 3 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E7%AB%8B%E5%9B%BD%E8%A6%8B%E3%81%AE%E6%A3%AE%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 兵庫県立国見の森公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E7%AB%8B%E5%9B%BD%E8%A6%8B%E3%81%AE%E6%A3%AE%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 兵庫県立国見の森公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.kuniminomori.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：兵庫県立国見の森公園"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">兵庫県立国見の森公園</h3>
             <div class="tl-extra">
@@ -1926,7 +1985,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%8D%E3%82%89%E3%81%8D%E3%82%89%E5%9D%82%20%E8%B5%A4%E7%A9%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Kirakira-saka"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%8D%E3%82%89%E3%81%8D%E3%82%89%E5%9D%82%20%E8%B5%A4%E7%A9%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Kirakira-saka"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.city.ako.lg.jp/kensetsu/kankou/shisetsu/kanko/kirakirasaka.html" target="_blank" rel="noopener" aria-label="景點介紹網站：きらきら坂"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">Kirakira-saka</h3>
             <div class="tl-extra">
@@ -2042,7 +2104,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B5%A4%E7%A9%82%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92%20%E9%9B%A3%E7%A0%B4%E8%88%B9" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 大型遊具・難破船"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B5%A4%E7%A9%82%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92%20%E9%9B%A3%E7%A0%B4%E8%88%B9" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 大型遊具・難破船"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.hyogo-park.or.jp/akokaihin/contents/sisetsu/area_wanpaku.html" target="_blank" rel="noopener" aria-label="景點介紹網站：大型遊具・難破船"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">大型遊具・難破船</h3>
             <div class="tl-extra">
@@ -2080,7 +2145,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-torii"></use></svg>神社</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B5%A4%E7%A9%82%E5%A4%A7%E7%9F%B3%E7%A5%9E%E7%A4%BE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 赤穗大石神社"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B5%A4%E7%A9%82%E5%A4%A7%E7%9F%B3%E7%A5%9E%E7%A4%BE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 赤穗大石神社"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.ako-ooishijinjya.or.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：赤穗大石神社"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">赤穗大石神社</h3>
             <div class="tl-extra">
@@ -2118,7 +2186,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%97%A7%E9%96%91%E8%B0%B7%E5%AD%A6%E6%A0%A1" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 舊閑谷學校"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%97%A7%E9%96%91%E8%B0%B7%E5%AD%A6%E6%A0%A1" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 舊閑谷學校"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://shizutani.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：舊閑谷學校"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">舊閑谷學校</h3>
             <div class="tl-extra">
@@ -2156,7 +2227,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA%20%E6%9C%AC%E7%94%BA%E9%80%9A%E3%82%8A" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷美觀地區 本町街道"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA%20%E6%9C%AC%E7%94%BA%E9%80%9A%E3%82%8A" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷美觀地區 本町街道"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.kurashiki-tabi.jp/standard/kurashiki-bikan-historical-quarter/" target="_blank" rel="noopener" aria-label="景點介紹網站：倉敷美觀地區 本町街道"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">倉敷美觀地區 本町街道</h3>
             <div class="tl-extra">
@@ -2266,7 +2340,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E3%81%B5%E3%82%8C%E3%81%82%E3%81%84%E3%81%AE%E4%B8%98%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷交流之丘公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E3%81%B5%E3%82%8C%E3%81%82%E3%81%84%E3%81%AE%E4%B8%98%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷交流之丘公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://kurashiki-fureainooka.jp/" target="_blank" rel="noopener" aria-label="景點介紹網站：倉敷交流之丘公園"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">倉敷交流之丘公園</h3>
             <div class="tl-extra">
@@ -2302,7 +2379,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%B7%B2%E7%BE%BD%E5%B1%B1%E5%B1%95%E6%9C%9B%E5%8F%B0" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 鷲羽山"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%B7%B2%E7%BE%BD%E5%B1%B1%E5%B1%95%E6%9C%9B%E5%8F%B0" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 鷲羽山"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://resthouse.washuzan.com/" target="_blank" rel="noopener" aria-label="景點介紹網站：鷲羽山"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">鷲羽山</h3>
             <div class="tl-extra">
@@ -2341,7 +2421,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%81%96%E9%80%9A%E5%AF%BA%E5%B1%B1%E5%B1%95%E6%9C%9B%E5%8F%B0%20%E5%AE%87%E5%A4%9A%E6%B4%A5" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 戀人的聖地 聖通寺山展望台（聖安潔莉娜）"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%81%96%E9%80%9A%E5%AF%BA%E5%B1%B1%E5%B1%95%E6%9C%9B%E5%8F%B0%20%E5%AE%87%E5%A4%9A%E6%B4%A5" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 戀人的聖地 聖通寺山展望台（聖安潔莉娜）"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.town.utazu.lg.jp/page/1176.html" target="_blank" rel="noopener" aria-label="景點介紹網站：戀人的聖地 聖通寺山展望台（聖安潔莉娜）"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">戀人的聖地 聖通寺山展望台（聖安潔莉娜）</h3>
             <div class="tl-extra">
@@ -2460,7 +2543,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tree"></use></svg>公園</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A0%97%E6%9E%97%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 栗林公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A0%97%E6%9E%97%E5%85%AC%E5%9C%92" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 栗林公園"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://ritsuringarden.com/ritsurin/" target="_blank" rel="noopener" aria-label="景點介紹網站：栗林公園"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">栗林公園</h3>
             <div class="tl-extra">
@@ -2498,7 +2584,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pagoda"></use></svg>寺院</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8B%E5%B3%B6%E5%AF%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 第八十四番札所 屋島寺"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8B%E5%B3%B6%E5%AF%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 第八十四番札所 屋島寺"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://88shikokuhenro.jp/84yashimaji/" target="_blank" rel="noopener" aria-label="景點介紹網站：屋島寺"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">第八十四番札所 屋島寺</h3>
             <div class="tl-extra">
@@ -2536,7 +2625,10 @@
             <div class="tl-meta">
               <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-torii"></use></svg>神社</span>
               <span class="duration">停留 1 小時</span>
-              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B7%9D%E6%9D%B1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E9%AB%98%E6%9D%BE%E5%B8%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 川東八幡神社"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B7%9D%E6%9D%B1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E9%AB%98%E6%9D%BE%E5%B8%82" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 川東八幡神社"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://kagawakenjinjacho.or.jp/shrine/%E5%B7%9D%E6%9D%B1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE/" target="_blank" rel="noopener" aria-label="景點介紹網站：川東八幡神社"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
             </div>
             <h3 class="tl-name">川東八幡神社</h3>
             <div class="tl-extra">
