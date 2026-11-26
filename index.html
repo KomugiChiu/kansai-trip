@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW" data-day-4="v1" data-day-5="v1" data-day-7="v1" data-day-8="v1">
+<html lang="zh-Hant-TW" data-day-4="v2" data-day-5="v2" data-day-7="v1" data-day-8="v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1227,13 +1227,13 @@
           <span class="tab-top"><span class="tab-day">Day 3</span><span class="tab-date">11/30 <span class="dow">（一）</span></span></span>
           <span class="tab-theme">租車自駕往姬路</span>
         </button>
-        <button type="button" class="tab" id="tab-4" role="tab" aria-selected="false" aria-controls="panel-4" tabindex="-1">
+        <button type="button" class="tab" id="tab-4" role="tab" aria-selected="false" aria-controls="panel-4-v2" tabindex="-1">
           <span class="tab-top"><span class="tab-day">Day 4</span><span class="tab-date">12/01 <span class="dow">（二）</span></span></span>
-          <span class="tab-theme">姬路城漫遊</span>
+          <span class="tab-theme">書写山・姬路站週邊</span>
         </button>
-        <button type="button" class="tab" id="tab-5" role="tab" aria-selected="false" aria-controls="panel-5" tabindex="-1">
+        <button type="button" class="tab" id="tab-5" role="tab" aria-selected="false" aria-controls="panel-5-v2" tabindex="-1">
           <span class="tab-top"><span class="tab-day">Day 5</span><span class="tab-date">12/02 <span class="dow">（三）</span></span></span>
-          <span class="tab-theme">姬路 → 赤穗溫泉</span>
+          <span class="tab-theme">姬路城・龍野 → 赤穗</span>
         </button>
         <button type="button" class="tab" id="tab-6" role="tab" aria-selected="false" aria-controls="panel-6" tabindex="-1">
           <span class="tab-top"><span class="tab-day">Day 6</span><span class="tab-date">12/03 <span class="dow">（四）</span></span></span>
@@ -1744,8 +1744,8 @@
       <div class="day-switch">
         <span class="day-switch-label">此日方案</span>
         <div class="day-switch-group" role="group" aria-label="Day 4 此日方案">
-          <button type="button" class="day-switch-btn" data-day="4" data-variant="v1" aria-pressed="true">姬路城漫遊</button>
-          <button type="button" class="day-switch-btn" data-day="4" data-variant="v2" aria-pressed="false">書写山＋站前</button>
+          <button type="button" class="day-switch-btn" data-day="4" data-variant="v1" aria-pressed="false">姬路城漫遊</button>
+          <button type="button" class="day-switch-btn" data-day="4" data-variant="v2" aria-pressed="true">書写山＋站前</button>
         </div>
       </div>
       <ol class="timeline">
@@ -1913,8 +1913,8 @@
       <div class="day-switch">
         <span class="day-switch-label">此日方案</span>
         <div class="day-switch-group" role="group" aria-label="Day 4 此日方案">
-          <button type="button" class="day-switch-btn" data-day="4" data-variant="v1" aria-pressed="true">姬路城漫遊</button>
-          <button type="button" class="day-switch-btn" data-day="4" data-variant="v2" aria-pressed="false">書写山＋站前</button>
+          <button type="button" class="day-switch-btn" data-day="4" data-variant="v1" aria-pressed="false">姬路城漫遊</button>
+          <button type="button" class="day-switch-btn" data-day="4" data-variant="v2" aria-pressed="true">書写山＋站前</button>
         </div>
       </div>
       <ol class="timeline">
@@ -2071,8 +2071,8 @@
       <div class="day-switch">
         <span class="day-switch-label">此日方案</span>
         <div class="day-switch-group" role="group" aria-label="Day 5 此日方案">
-          <button type="button" class="day-switch-btn" data-day="5" data-variant="v1" aria-pressed="true">國見の森版</button>
-          <button type="button" class="day-switch-btn" data-day="5" data-variant="v2" aria-pressed="false">姬路城＋龍野</button>
+          <button type="button" class="day-switch-btn" data-day="5" data-variant="v1" aria-pressed="false">國見の森版</button>
+          <button type="button" class="day-switch-btn" data-day="5" data-variant="v2" aria-pressed="true">姬路城＋龍野</button>
         </div>
       </div>
       <ol class="timeline">
@@ -2342,8 +2342,8 @@
       <div class="day-switch">
         <span class="day-switch-label">此日方案</span>
         <div class="day-switch-group" role="group" aria-label="Day 5 此日方案">
-          <button type="button" class="day-switch-btn" data-day="5" data-variant="v1" aria-pressed="true">國見の森版</button>
-          <button type="button" class="day-switch-btn" data-day="5" data-variant="v2" aria-pressed="false">姬路城＋龍野</button>
+          <button type="button" class="day-switch-btn" data-day="5" data-variant="v1" aria-pressed="false">國見の森版</button>
+          <button type="button" class="day-switch-btn" data-day="5" data-variant="v2" aria-pressed="true">姬路城＋龍野</button>
         </div>
       </div>
       <ol class="timeline">
@@ -3610,7 +3610,7 @@
       var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
       if (!tabs.length) return;
 
-      var dayState = { 4: "v1", 5: "v1", 7: "v1", 8: "v1" };
+      var dayState = { 4: "v2", 5: "v2", 7: "v1", 8: "v1" };
       var dayPanels = {
         4: { v1: "panel-4", v2: "panel-4-v2" },
         5: { v1: "panel-5", v2: "panel-5-v2" },
@@ -3686,8 +3686,8 @@
         }
       }
 
-      function setDayVariant(day, variant) {
-        dayState[day] = variant;
+      function syncDayUI(day) {
+        var variant = dayState[day];
         document.documentElement.setAttribute("data-day-" + day, variant);
 
         var tab = document.getElementById("tab-" + day);
@@ -3706,6 +3706,11 @@
             );
           }
         );
+      }
+
+      function setDayVariant(day, variant) {
+        dayState[day] = variant;
+        syncDayUI(day);
 
         var selected = tabs.filter(function (item) {
           return item.getAttribute("aria-selected") === "true";
@@ -3795,6 +3800,10 @@
       var initial = tabs.filter(function (tab) {
         return tab.getAttribute("aria-selected") === "true";
       })[0] || tabs[0];
+
+      [4, 5, 7, 8].forEach(function (day) {
+        syncDayUI(day);
+      });
 
       selectTab(initial, { scroll: false });
     }());
