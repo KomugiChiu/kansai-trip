@@ -1038,7 +1038,7 @@
     @media (max-width: 600px) {
       .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
       .version-bar { padding: .9rem .75rem 0; gap: .45rem .75rem; }
-      .version-btn { padding: .35rem .7rem; font-size: .72rem; }
+      .version-btn { padding: .35rem .45rem; font-size: .7rem; }
       .tabs-scroll { padding-left: .75rem; padding-right: .75rem; }
       .tab { min-width: 5.9rem; padding: .55rem .8rem .7rem; }
       .tab-theme { font-size: .69rem; }
@@ -1081,8 +1081,16 @@
       .panel, .panel[hidden] { display: block !important; max-width: none; padding: 1.5rem 0; opacity: 1 !important; animation: none !important; break-before: page; }
       html[data-version="1"] #panel-4-v2,
       html[data-version="1"] #panel-5-v2,
+      html[data-version="1"] #panel-7-v3,
+      html[data-version="1"] #panel-8-v3,
       html[data-version="2"] #panel-4,
-      html[data-version="2"] #panel-5 { display: none !important; }
+      html[data-version="2"] #panel-5,
+      html[data-version="2"] #panel-7-v3,
+      html[data-version="2"] #panel-8-v3,
+      html[data-version="3"] #panel-4,
+      html[data-version="3"] #panel-5,
+      html[data-version="3"] #panel-7,
+      html[data-version="3"] #panel-8 { display: none !important; }
       .panel:first-of-type { break-before: auto; }
       .tl-card { box-shadow: none; break-inside: avoid; }
       .tl-extra { display: block; }
@@ -1210,8 +1218,9 @@
       <div class="segmented" role="group" aria-label="行程版本切換">
         <button type="button" class="version-btn" id="version-btn-1" data-version="1" aria-pressed="true">版本 1・原行程</button>
         <button type="button" class="version-btn" id="version-btn-2" data-version="2" aria-pressed="false">版本 2・書写山＋龍野</button>
+        <button type="button" class="version-btn" id="version-btn-3" data-version="3" aria-pressed="false">版本 3・🌧 雨備</button>
       </div>
-      <p class="version-note">版本 2：Day 4 書写山＋姬路站週邊 / Day 5 姬路城＋龍野昭和レトロ</p>
+      <p class="version-note">版本 2：Day 4 書写山＋姬路站週邊 / Day 5 姬路城＋龍野昭和レトロ｜版本 3：同版本 2，Day 7/8 換雨天室內備案</p>
     </div>
     <nav class="tabs" aria-label="每日行程分頁">
       <div class="tabs-scroll" role="tablist" aria-label="Day 1 至 Day 8" aria-orientation="horizontal">
@@ -1227,11 +1236,11 @@
           <span class="tab-top"><span class="tab-day">Day 3</span><span class="tab-date">11/30 <span class="dow">（一）</span></span></span>
           <span class="tab-theme">租車自駕往姬路</span>
         </button>
-        <button type="button" class="tab" id="tab-4" role="tab" aria-selected="false" aria-controls="panel-4" tabindex="-1" data-theme-v1="姬路城漫遊" data-theme-v2="書写山・姬路站週邊">
+        <button type="button" class="tab" id="tab-4" role="tab" aria-selected="false" aria-controls="panel-4" tabindex="-1" data-theme-v1="姬路城漫遊" data-theme-v2="書写山・姬路站週邊" data-theme-v3="書写山・姬路站週邊" data-panel-v1="panel-4" data-panel-v2="panel-4-v2" data-panel-v3="panel-4-v2">
           <span class="tab-top"><span class="tab-day">Day 4</span><span class="tab-date">12/01 <span class="dow">（二）</span></span></span>
           <span class="tab-theme">姬路城漫遊</span>
         </button>
-        <button type="button" class="tab" id="tab-5" role="tab" aria-selected="false" aria-controls="panel-5" tabindex="-1" data-theme-v1="姬路 → 赤穗溫泉" data-theme-v2="姬路城・龍野 → 赤穗">
+        <button type="button" class="tab" id="tab-5" role="tab" aria-selected="false" aria-controls="panel-5" tabindex="-1" data-theme-v1="姬路 → 赤穗溫泉" data-theme-v2="姬路城・龍野 → 赤穗" data-theme-v3="姬路城・龍野 → 赤穗" data-panel-v1="panel-5" data-panel-v2="panel-5-v2" data-panel-v3="panel-5-v2">
           <span class="tab-top"><span class="tab-day">Day 5</span><span class="tab-date">12/02 <span class="dow">（三）</span></span></span>
           <span class="tab-theme">姬路 → 赤穗溫泉</span>
         </button>
@@ -1239,11 +1248,11 @@
           <span class="tab-top"><span class="tab-day">Day 6</span><span class="tab-date">12/03 <span class="dow">（四）</span></span></span>
           <span class="tab-theme">赤穗 → 倉敷</span>
         </button>
-        <button type="button" class="tab" id="tab-7" role="tab" aria-selected="false" aria-controls="panel-7" tabindex="-1">
+        <button type="button" class="tab" id="tab-7" role="tab" aria-selected="false" aria-controls="panel-7" tabindex="-1" data-theme-v1="倉敷 → 高松" data-theme-v2="倉敷 → 高松" data-theme-v3="🌧 雨備・倉敷 → 高松" data-panel-v1="panel-7" data-panel-v2="panel-7" data-panel-v3="panel-7-v3">
           <span class="tab-top"><span class="tab-day">Day 7</span><span class="tab-date">12/04 <span class="dow">（五）</span></span></span>
           <span class="tab-theme">倉敷 → 高松</span>
         </button>
-        <button type="button" class="tab" id="tab-8" role="tab" aria-selected="false" aria-controls="panel-8" tabindex="-1">
+        <button type="button" class="tab" id="tab-8" role="tab" aria-selected="false" aria-controls="panel-8" tabindex="-1" data-theme-v1="高松 → 回程" data-theme-v2="高松 → 回程" data-theme-v3="🌧 雨備・高松 → 回程" data-panel-v1="panel-8" data-panel-v2="panel-8" data-panel-v3="panel-8-v3">
           <span class="tab-top"><span class="tab-day">Day 8</span><span class="tab-date">12/05 <span class="dow">（六）</span></span></span>
           <span class="tab-theme">高松 → 回程</span>
         </button>
@@ -2904,6 +2913,134 @@
       <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
     </section>
 
+    <section class="panel" id="panel-7-v3" role="tabpanel" aria-labelledby="tab-7" tabindex="0" hidden>
+      <header class="panel-head">
+        <div>
+          <p class="panel-date"><time datetime="2026-12-04">2026/12/04（五）</time></p>
+          <h2 class="panel-title">雨備・倉敷 → 高松</h2>
+        </div>
+        <p class="panel-note"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>住宿 高松</p>
+      </header>
+      <ol class="timeline">
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="09:40">09:40</time><span class="tl-status">退房・出發</span></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%80%89%E6%95%B7%E3%82%A2%E3%82%A4%E3%83%93%E3%83%BC%E3%82%B9%E3%82%AF%E3%82%A8%E3%82%A2" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 倉敷アイビースクエア"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">倉敷アイビースクエア</h3>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 5 分 · 1 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.59460,133.77339&amp;destination=34.60155,133.76657&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="10:00">10:00</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
+              <span class="duration">停留 2 小時</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%89%E4%BA%95%E3%82%A2%E3%82%A6%E3%83%88%E3%83%AC%E3%83%83%E3%83%88%E3%83%91%E3%83%BC%E3%82%AF%E5%80%89%E6%95%B7" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 三井アウトレットパーク倉敷"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://mitsui-shopping-park.com/mop/kurashiki/" target="_blank" rel="noopener" aria-label="景點介紹網站：三井アウトレットパーク倉敷"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">三井アウトレットパーク倉敷</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v3-mitsui-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v3-mitsui-extra" hidden>
+                <p class="tl-extra-title">三井アウトレットパーク倉敷</p>
+                <dl class="kv">
+                  <dt>營業</dt>
+                  <dd>10:00–20:00</dd>
+                  <dt>規模</dt>
+                  <dd>約 120 店、免費入場</dd>
+                  <dt>停車</dt>
+                  <dd>約 1,700 台（最初 1 小時免費，購物滿額另有折抵）</dd>
+                  <dt>連結</dt>
+                  <dd>與アリオ倉敷・倉敷みらい公園相連；美食街可用午餐</dd>
+                  <dt>電話</dt>
+                  <dd><a href="tel:0864236500">086-423-6500</a></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 35 分 · 35 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.60155,133.76657&amp;destination=34.36640,133.82600&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="12:40">12:40</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
+              <span class="duration">停留 1 小時 30 分</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%80%AC%E6%88%B8%E5%A4%A7%E6%A9%8B%E8%A8%98%E5%BF%B5%E9%A4%A8" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 瀬戸大橋記念館"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="http://www.setoohhashi.com/" target="_blank" rel="noopener" aria-label="景點介紹網站：瀬戸大橋記念館"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">瀬戸大橋記念館</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v3-seto-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v3-seto-extra" hidden>
+                <p class="tl-extra-title">瀬戸大橋記念館</p>
+                <dl class="kv">
+                  <dt>開館</dt>
+                  <dd>9:00–17:00（入館至 16:30）</dd>
+                  <dt>費用</dt>
+                  <dd>免費（ブリッジシアター也免費）</dd>
+                  <dt>休館</dt>
+                  <dd>週一休（遇假日翌日）</dd>
+                  <dt>停車</dt>
+                  <dd>免費停車約 450 台</dd>
+                  <dt>看點</dt>
+                  <dd>屋上展望台看瀬戸大橋</dd>
+                  <dt>電話</dt>
+                  <dd><a href="tel:0877452344">0877-45-2344</a></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 34 分 · 34 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.36640,133.82600&amp;destination=34.33865,134.04893&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item is-stay">
+          <div class="tl-time"><time datetime="15:00">15:00</time><span class="tl-status">抵達</span></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-onsen"></use></svg>溫泉</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9B%E3%83%86%E3%83%AB%E9%AB%98%E6%9D%BE%E7%94%B0%E7%94%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 天然溫泉讚岐之湯 Super Hotel高松田町"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">天然溫泉讚岐之湯 Super Hotel高松田町</h3>
+          </div>
+        </li>
+      </ol>
+      <p class="drive-note">雨備版本：以室內景點為主，出發前請確認天氣與設施營業狀況</p>
+    </section>
+
     <section class="panel" id="panel-8" role="tabpanel" aria-labelledby="tab-8" tabindex="0" hidden>
       <header class="panel-head">
         <div>
@@ -3162,6 +3299,226 @@
 
       <p class="drive-note">行車時間為 OSM 路網估算，實際請以導航為準。</p>
     </section>
+    <section class="panel" id="panel-8-v3" role="tabpanel" aria-labelledby="tab-8" tabindex="0" hidden>
+      <header class="panel-head">
+        <div>
+          <p class="panel-date"><time datetime="2026-12-05">2026/12/05（六）</time></p>
+          <h2 class="panel-title">雨備・高松 → 回程</h2>
+        </div>
+        <p class="panel-note"><svg class="icon" aria-hidden="true"><use href="#i-plane"></use></svg>當日回程</p>
+      </header>
+      <ol class="timeline">
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="09:30">09:30</time><span class="tl-status">退房・出發</span></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--stay"><svg class="icon" aria-hidden="true"><use href="#i-bed"></use></svg>飯店</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9B%E3%83%86%E3%83%AB%E9%AB%98%E6%9D%BE%E7%94%B0%E7%94%BA" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 スーパーホテル高松・田町"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">スーパーホテル高松・田町</h3>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+              <span class="tl-leg-text">步行約 8 分（経アーケード）</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="09:45">09:45</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
+              <span class="duration">停留 1 小時 15 分</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%B8%E4%BA%80%E7%94%BA%E5%95%86%E5%BA%97%E8%A1%97" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 丸亀町商店街"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">丸亀町商店街</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v3-marugamemachi-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v3-marugamemachi-extra" hidden>
+                <p class="tl-extra-title">丸亀町商店街</p>
+                <p>拱廊商店街、約 10:00–20:00（各店不同）、高松駅步行約 10 分、丸亀町グリーン・高松三越相鄰、雨天照逛</p>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚶</span>
+              <span class="tl-leg-text">步行約 5 分</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="11:05">11:05</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>景點</span>
+              <span class="duration">停留 1 小時</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E6%9D%BE%E5%B8%82%E7%BE%8E%E8%A1%93%E9%A4%A8" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 高松市美術館"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.city.takamatsu.kagawa.jp/museum/takamatsu/" target="_blank" rel="noopener" aria-label="景點介紹網站：高松市美術館"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">高松市美術館</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v3-artmuseum-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v3-artmuseum-extra" hidden>
+                <p class="tl-extra-title">高松市美術館</p>
+                <dl class="kv">
+                  <dt>開館</dt>
+                  <dd>9:30–17:00（入室至 16:30）</dd>
+                  <dt>休館</dt>
+                  <dd>週一休</dd>
+                  <dt>票價</dt>
+                  <dd>常設展 ¥200（高中生以下免費）</dd>
+                  <dt>電話</dt>
+                  <dd><a href="tel:0878231711">087-823-1711</a></dd>
+                  <dt>停車</dt>
+                  <dd>地下停車 25 分 ¥100</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 7 分 · 3 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.34070,134.04770&amp;destination=34.31760,134.03310&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="12:20">12:20</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-food"></use></svg>餐廳</span>
+              <span class="duration">停留 2 小時 25 分（含午餐）</span>
+              <span class="tl-links">
+                <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%86%E3%82%81%E3%82%BF%E3%82%A6%E3%83%B3%E9%AB%98%E6%9D%BE" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 ゆめタウン高松"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+                <a class="tl-intro" href="https://www.izumi.jp/takamatsu/" target="_blank" rel="noopener" aria-label="景點介紹網站：ゆめタウン高松"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>介紹</a>
+              </span>
+            </div>
+            <h3 class="tl-name">ゆめタウン高松</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v3-youme-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v3-youme-extra" hidden>
+                <p class="tl-extra-title">ゆめタウン高松</p>
+                <dl class="kv">
+                  <dt>營業</dt>
+                  <dd>10:00–21:00（以官網為準）</dd>
+                  <dt>內容</dt>
+                  <dd>大型購物中心（超市・美食街・免稅服務）</dd>
+                  <dt>交通</dt>
+                  <dd>往高松機場約 15 分</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 15 分 · 10 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.31760,134.03310&amp;destination=34.24064,134.02845&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="15:00">15:00</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--move"><svg class="icon" aria-hidden="true"><use href="#i-fuel"></use></svg>交通</span>
+              <span class="duration">停留 15 分</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%BB%E3%83%AB%E3%83%95%E9%AB%98%E6%9D%BE%E7%A9%BA%E6%B8%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 SOLATO セルフ高松空港"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">SOLATO セルフ高松空港</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v3-solato-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v3-solato-extra" hidden>
+                <p class="tl-extra-title">SOLATO セルフ高松空港</p>
+                <dl class="kv">
+                  <dt>營業</dt>
+                  <dd>07:00–24:00</dd>
+                  <dt>電話</dt>
+                  <dd><a href="tel:0878792105">087-879-2105</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">60 243 387*37</span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚗</span>
+              <span class="tl-leg-text">約 2 分 · 1 km</span>
+              <a class="tl-leg-nav" href="https://www.google.com/maps/dir/?api=1&amp;origin=34.24064,134.02845&amp;destination=34.23944,134.01957&amp;travelmode=driving" target="_blank" rel="noopener">導航</a>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="15:20">15:20</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--move"><svg class="icon" aria-hidden="true"><use href="#i-car"></use></svg>租車</span>
+              <span class="duration">停留 20 分</span>
+              <a class="tl-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%8B%E3%83%83%E3%83%9D%E3%83%B3%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%AB%E3%83%BC%E9%AB%98%E6%9D%BE%E7%A9%BA%E6%B8%AF" target="_blank" rel="noopener" aria-label="在 Google Maps 查看 Nippon Rent-A-Car Takamatsu Airport"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>地圖</a>
+            </div>
+            <h3 class="tl-name">Nippon Rent-A-Car Takamatsu Airport</h3>
+            <div class="tl-extra">
+              <button type="button" class="tl-extra-toggle" aria-expanded="false" aria-controls="v3-nippon-extra">
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                額外資訊
+                <svg class="icon icon--chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+              </button>
+              <div class="tl-extra-panel" id="v3-nippon-extra" hidden>
+                <p class="tl-extra-title">ニッポンレンタカー高松空港</p>
+                <dl class="kv">
+                  <dt>營業</dt>
+                  <dd>08:00–20:00</dd>
+                  <dt>電話</dt>
+                  <dd><a href="tel:05017122437">050-1712-2437</a></dd>
+                  <dt>Map Code</dt>
+                  <dd><span class="mapcode">60 211 117*07</span></dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="tl-leg">
+            <span class="tl-leg-chip">
+              <span class="tl-leg-icon" aria-hidden="true">🚌</span>
+              <span class="tl-leg-text">租車公司免費接駁 約 3 分</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-time"><time datetime="15:45">15:45</time></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tag tag--move"><svg class="icon" aria-hidden="true"><use href="#i-plane"></use></svg>機場</span>
+              <span class="duration">停留 1 小時</span>
+            </div>
+            <h3 class="tl-name">高松機場</h3>
+          </div>
+        </li>
+      </ol>
+      <p class="drive-note">雨備版本：以室內景點為主；加油・還車時間已配合調整</p>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -3187,7 +3544,10 @@
       if (!tabs.length) return;
 
       var versionButtons = Array.prototype.slice.call(document.querySelectorAll(".version-btn"));
-      var versionPanelIds = ["panel-4", "panel-4-v2", "panel-5", "panel-5-v2"];
+      var versionPanelIds = [
+        "panel-4", "panel-4-v2", "panel-5", "panel-5-v2",
+        "panel-7", "panel-7-v3", "panel-8", "panel-8-v3"
+      ];
       var version = 1;
 
       function centerTab(tab) {
@@ -3244,17 +3604,15 @@
         });
 
         tabs.forEach(function (tab) {
-          if (tab.id === "tab-4") {
-            tab.setAttribute("aria-controls", version === 2 ? "panel-4-v2" : "panel-4");
-          } else if (tab.id === "tab-5") {
-            tab.setAttribute("aria-controls", version === 2 ? "panel-5-v2" : "panel-5");
+          var panelId = tab.getAttribute("data-panel-v" + version);
+          if (panelId) {
+            tab.setAttribute("aria-controls", panelId);
           }
 
-          var themeV1 = tab.getAttribute("data-theme-v1");
-          var themeV2 = tab.getAttribute("data-theme-v2");
-          if (themeV1 !== null && themeV2 !== null) {
+          var themeText = tab.getAttribute("data-theme-v" + version);
+          if (themeText !== null) {
             var theme = tab.querySelector(".tab-theme");
-            if (theme) theme.textContent = version === 2 ? themeV2 : themeV1;
+            if (theme) theme.textContent = themeText;
           }
         });
 
